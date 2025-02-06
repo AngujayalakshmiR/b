@@ -23,28 +23,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
-        .table {
-    border-radius: 15px;
-    overflow: hidden; /* Ensures inner elements don't break the radius */
-    border-collapse: separate; /* Required for border-radius to work properly */
-    border-spacing: 0; /* Removes unwanted gaps */
-}
-
-/* Rounds top corners */
-.table thead tr:first-child th:first-child {
-    border-top-left-radius: 15px;
-}
-.table thead tr:first-child th:last-child {
-    border-top-right-radius: 15px;
-}
-
-/* Rounds bottom corners */
-.table tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-.table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
+        
         /* Gradient background for thead */
         thead  {
             background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -79,7 +58,7 @@
         }
 
         /* Add Customer Button */
-        .add-customer-btn {
+        .add-employee-btn {
             float: right;
             background: #007bff;
             color: white;
@@ -90,11 +69,11 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .add-customer-btn i {
+        .add-employee-btn i {
             margin-right: 5px;
         }
 
-        .add-customer-btn:hover {
+        .add-employee-btn:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
@@ -115,6 +94,55 @@
         color: #f8f9fa;
     }
 
+
+    .upload-icon {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.upload-label:hover .upload-icon {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+.upload-icon.bounce {
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Icon Styling */
+.photo-icon{
+    color: #5796d8;
+}
+.aadhar-icon{
+    color: rgb(212, 212, 69);
+}
+.pan-icon{
+    color:rgb(250, 148, 65);
+}
+.photo-icon, .aadhar-icon, .pan-icon {
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+.photo-icon:hover, .aadhar-icon:hover, .pan-icon:hover {
+    transform: scale(1.3);
+    color: #007bff;
+}
+
+/* Bounce Effect on File Icon */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.photo-icon:hover, .aadhar-icon:hover, .pan-icon:hover {
+    animation: bounce 0.5s ease-in-out;
+}
 
     </style>
 </head>
@@ -138,7 +166,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -162,7 +190,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="customer.php">Customer</a>
-                        <a class="collapse-item" href="employee.php">Employee</a>
+                        <a class="collapse-item active" href="employee.php">Employee</a>
                         <a class="collapse-item" href="employeetype.php">Employee Type</a>
                         <a class="collapse-item" href="projecttype.php">Project Type</a>
                     </div>
@@ -320,121 +348,186 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div id="content-wrapper" class="d-flex flex-column">
+                <div class="container-fluid">
 
-                    <!-- Main Content -->
-                    <div id="content">
-        
-                        
-                        <!-- End of Topbar -->
-        
-                        <!-- Begin Page Content -->
-                        <div class="container-fluid">
-        
-                            <!-- Page Heading -->
-                            <h1 class="h3 mb-2 text-gray-800">Master > Customer Details</h1>
-                            
-        
-                            <!-- DataTales Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Customer Details <button class="add-customer-btn" data-toggle="modal" data-target="#addCustomerModal">
-                                        <i class="fas fa-plus"></i> Add Customer
-                                    </button></h6>
-                                   
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr class="thead">
-                                                    <th>S.no</th>
-                                                    <th>Name</th>
-                                                    <th>Company Name</th>
-                                                    <th>Contact</th>
-                                                    <th>Address</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>JayaVarshini</td>
-                                                    <td>ABC Company</td>
-                                                    <td>1234567890</td>
-                                                    <td>No.123, Nehru Nagar, Karur-639006, Tamil Nadu, India</td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Suriya</td>
-                                                    <td>XYZ Company</td>
-                                                    <td>9876543210</td>
-                                                    <td>No.143, Vijaya Street, Chennai-5, Tamil Nadu, India</td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Mohan</td>
-                                                    <td>MNO Company</td>
-                                                    <td>4567891234</td>
-                                                    <td>No.11/A, Sengunthar Nagar, Karur-639006, Tamil Nadu, India</td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-        
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Master > Employee Details</h1>
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Employee Details <button class="add-employee-btn" data-toggle="modal" data-target="#addEmployeeModal">
+                                <i class="fas fa-plus"></i> Add Employee
+                            </button></h6>
+                           
                         </div>
-                        <!-- /.container-fluid -->
-        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="thead">
+                                            <th>S.no</th>
+                                            <th>Name</th>
+                                            <th>Designation</th>
+                                            <th>Ph Number</th>
+                                            <th>Address</th>
+                                            <th>Photo</th>
+                                            <th>Aadhar Card</th>
+                                            <th>Pan Card</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>JayaVarshini</td>
+                                            <td>App Developer</td>
+                                            <td>1234567890</td>
+                                            <td>No.123, Nehru Nagar, Karur-639006, Tamil Nadu, India</td>
+                                            <td>
+                                                <i class="fas fa-camera-retro photo-icon" title="Photo"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-id-card aadhar-icon" title="Aadhar Card"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-id-badge pan-icon" title="Pan Card"></i>
+                                            </td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Suriya</td>
+                                            <td>Full Stack Developer</td>
+                                            <td>9876543210</td>
+                                            <td>No.143, Vijaya Street, Chennai-5, Tamil Nadu, India</td>
+                                            <td>
+                                                <i class="fas fa-camera-retro photo-icon" title="Photo"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-id-card aadhar-icon" title="Aadhar Card"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-id-badge pan-icon" title="Pan Card"></i>
+                                            </td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Mohan</td>
+                                            <td>UI / UX Designer</td>
+                                            <td>4567891234</td>
+                                            <td>No.11/A, Sengunthar Nagar, Karur-639006, Tamil Nadu, India</td>
+                                            <td>
+                                                <i class="fas fa-camera-retro photo-icon" title="Photo"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-id-card aadhar-icon" title="Aadhar Card"></i>
+                                            </td>
+                                            <td>
+                                                <i class="fas fa-id-badge pan-icon" title="Pan Card"></i>
+                                            </td>
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
                     </div>
-        
-<!-- Add Customer Modal -->
-<div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addCustomerModalLabel">Add Customer</h5>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+
+
+<!-- Add Employee Modal -->
+<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="border-radius: 25px; overflow: hidden;">
+            <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;"      >
+                <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="form-group">
-                        <label for="customerName">Name:</label>
-                        <input type="text" class="form-control" id="customerName" placeholder="Enter name">
+                    <div class="row">
+                        <!-- Left Side -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="employeeName">Name:</label>
+                                <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name">
+                            </div>
+                            <div class="form-group">
+                                <label for="designation">Designation:</label>
+                                <input type="text" class="form-control" id="designation" placeholder="Enter designation">
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number:</label>
+                                <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeAddress">Address:</label>
+                                <textarea class="form-control" id="employeeAddress" rows="3" placeholder="Enter address"></textarea>
+                            </div>
+                        </div>
+<!-- Right Side -->
+<div class="col-md-6">
+    <div class="card p-3 shadow-sm">
+        
+        <div class="form-group text-center">
+            <label for="employeePhoto" class="upload-label d-block font-weight-bold">
+                <i class="fas fa-camera-retro fa-2x text-primary upload-icon"></i>
+                <p class="mt-2">Upload Photo</p>
+            </label>
+            <input type="file" class="form-control-file d-none" id="employeePhoto" onchange="updateFileName(this, 'photoFileName')">
+            <p class="file-name mt-2 text-muted" id="photoFileName">No file chosen</p>
+        </div>
+
+        <div class="form-group text-center">
+            <label for="aadharCard" class="upload-label d-block font-weight-bold">
+                <i class="fas fa-id-card fa-2x text-success upload-icon"></i>
+                <p class="mt-2">Upload Aadhar Card</p>
+            </label>
+            <input type="file" class="form-control-file d-none" id="aadharCard" onchange="updateFileName(this, 'aadharFileName')">
+            <p class="file-name mt-2 text-muted" id="aadharFileName">No file chosen</p>
+        </div>
+
+        <div class="form-group text-center">
+            <label for="panCard" class="upload-label d-block font-weight-bold">
+                <i class="fas fa-id-badge fa-2x text-danger upload-icon"></i>
+                <p class="mt-2">Upload Pan Card</p>
+            </label>
+            <input type="file" class="form-control-file d-none" id="panCard" onchange="updateFileName(this, 'panFileName')">
+            <p class="file-name mt-2 text-muted" id="panFileName">No file chosen</p>
+        </div>
+
+    </div>
+</div>
+
+
                     </div>
-                    <div class="form-group">
-                        <label for="companyName">Company Name:</label>
-                        <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneNumber">Phone Number:</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
-                    </div>
-                    <div class="form-group">
-                        <label for="customerAddress">Address:</label>
-                        <textarea class="form-control" id="customerAddress" rows="3" placeholder="Enter address"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Add Customer</button>
+
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Add Employee</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
             <!-- End of Main Content -->
 
@@ -498,7 +591,28 @@
 <!-- Bootstrap 4.6.0 JavaScript -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
+<script>
+    function updateFileName(input, fileNameId) {
+    const fileInput = input.files[0];
+    
+    // Ensure the input has a file
+    if (fileInput) {
+        document.getElementById(fileNameId).textContent = fileInput.name;
+    } else {
+        document.getElementById(fileNameId).textContent = "No file chosen";
+    }
 
+    // Add bounce animation to the icon
+    const icon = input.previousElementSibling.querySelector(".upload-icon");
+    icon.classList.add("bounce");
+
+    // Remove animation after it plays once
+    setTimeout(() => {
+        icon.classList.remove("bounce");
+    }, 500);
+}
+
+</script>
 </body>
 
 </html>
