@@ -404,8 +404,8 @@
 <!-- Add Customer Modal -->
 <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content" style="border-radius: 25px; overflow: hidden;">
+            <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;" >
                 <h5 class="modal-title" id="addCustomerModalLabel">Add Customer</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
