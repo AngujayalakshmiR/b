@@ -163,7 +163,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item active" href="customer.php">Customer</a>
                         <a class="collapse-item" href="employee.php">Employee</a>
-                        <a class="collapse-item" href="employeetype.php">Employee Type</a>
+                        <a class="collapse-item" href="designation.php">Employee Type</a>
                         <a class="collapse-item" href="projecttype.php">Project Type</a>
                     </div>
                 </div>
