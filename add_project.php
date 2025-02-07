@@ -23,28 +23,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
-        .table {
-    border-radius: 15px;
-    overflow: hidden; /* Ensures inner elements don't break the radius */
-    border-collapse: separate; /* Required for border-radius to work properly */
-    border-spacing: 0; /* Removes unwanted gaps */
-}
-
-/* Rounds top corners */
-.table thead tr:first-child th:first-child {
-    border-top-left-radius: 15px;
-}
-.table thead tr:first-child th:last-child {
-    border-top-right-radius: 15px;
-}
-
-/* Rounds bottom corners */
-.table tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-.table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
+        
         /* Gradient background for thead */
         thead  {
             background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -79,7 +58,7 @@
         }
 
         /* Add Customer Button */
-        .add-customer-btn {
+        .add-employee-btn {
             float: right;
             background: #007bff;
             color: white;
@@ -90,11 +69,11 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .add-customer-btn i {
+        .add-employee-btn i {
             margin-right: 5px;
         }
 
-        .add-customer-btn:hover {
+        .add-employee-btn:hover {
             background: #0056b3;
             transform: scale(1.1);
         }
@@ -116,7 +95,141 @@
     }
 
 
+    .upload-icon {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.upload-label:hover .upload-icon {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+.upload-icon.bounce {
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Icon Styling */
+.photo-icon{
+    color: #5796d8;
+}
+.aadhar-icon{
+    color: rgb(212, 212, 69);
+}
+.pan-icon{
+    color:rgb(250, 148, 65);
+}
+.photo-icon, .aadhar-icon, .pan-icon {
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+.photo-icon:hover, .aadhar-icon:hover, .pan-icon:hover {
+    transform: scale(1.3);
+    color: #007bff;
+}
+
+/* Bounce Effect on File Icon */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.photo-icon:hover, .aadhar-icon:hover, .pan-icon:hover {
+    animation: bounce 0.5s ease-in-out;
+}
+
     </style>
+     <style>
+        select {
+            cursor: pointer;
+        }
+     
+
+        .container-fluid {
+            max-width: 850px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h4 {
+            color: #2562a3;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .form-control {
+            transition: 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .form-control:focus {
+            border-color: #4568dc;
+            box-shadow: 0 0 5px rgba(69, 104, 220, 0.5);
+        }
+
+        .card {
+            border-radius: 8px;
+        }
+
+        .upload-label {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .upload-label:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(to right, #4568dc, #b06ab3);
+            border: none;
+            transition: transform 0.3s ease-in-out, opacity 0.3s;
+            font-weight: bold;
+            color: white;
+        }
+
+        .btn-gradient:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+            color: white;
+        }
+
+
+        .file-name {
+            font-size: 12px;
+            margin-bottom: 0px;
+            transition: color 0.3s;
+        }
+
+        .file-name:hover {
+            color: #2562a3;
+        }
+    </style>
+    <style>
+/* Add bounce animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.bounce {
+    animation: bounce 0.5s ease;
+}
+</style>
 </head>
 
 <body id="page-top">
@@ -128,7 +241,7 @@
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(to bottom, #4568dc,#4568dc, #b06ab3);">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon " style="font-size: large;">KTG
                 </div>
                 <div class="sidebar-brand-text mx-2" style="font-size: large;">DASHBOARD<sup></sup></div>
@@ -161,8 +274,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="customer.php">Customer</a>
-                        <a class="collapse-item" href="employee.php">Employee</a>
+                        <a class="collapse-item" href="customer.php">Customer</a>
+                        <a class="collapse-item " href="employee.php">Employee</a>
                         <a class="collapse-item" href="designation.php">Employee Type</a>
                         <a class="collapse-item" href="projecttype.php">Project Type</a>
                     </div>
@@ -218,22 +331,22 @@
             </li> -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link active" href="projectcreation.php">
+            <li class="nav-item active">
+                <a class="nav-link" href="projectcreation.html">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Project Creation</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="dailyupdates.php">
+                <a class="nav-link" href="dailyupdates.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Daily Updates</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="reports.php">
+                <a class="nav-link" href="reports.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Work Reports</span></a>
             </li>
@@ -320,140 +433,74 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div id="content-wrapper" class="d-flex flex-column">
-
-                    <!-- Main Content -->
-                    <div id="content">
-        
-                        
-                        <!-- End of Topbar -->
-        
-                        <!-- Begin Page Content -->
-                        <div class="container-fluid">
-        
-                            <!-- Page Heading -->
-                            <h1 class="h3 mb-2 text-gray-800">Project Creation</h1>
-                            
-        
-                            <!-- DataTales Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Project Creation  <button class="btn btn-primary" style="float:right;" onclick="window.location.href='add_project.php'">
-                                    <i class="fas fa-plus"></i> Add Project 
-                                     </button>
-                            </h6>
-                                   
+                <div class="container-fluid">
+                    <h4>Add Project</h4>
+                    <form action="projectcreation.php" method="GET">
+                        <div class="row">
+                            <!-- Left Side -->
+                            <div class="col-md-7">
+                            <div class="form-group">
+                                    <label for="customer"><b>Company Name:</b></label>
+                                    <select class="form-control form-control-sm" id="customer">
+                                        <option value="">Select Customer Company</option>
+                                        <option value="Kurinji Cements">Kurinji Cements</option>
+                                        <option value="Gowin">Gowin</option>
+                                    </select>
                                 </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr class="thead">
-                                                    <th>S.no</th>
-                                                    <th>Customer</th>
-                                                    <th>Company</th>
-                                                    <th>Project type</th>
-                                                    <th>Project Title</th>
-                                                    <th>Days</th>
-                                                    <th>Employees</th>
-                                                    <th>Requirement</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>ABC</td>
-                                                    <td>Kurinji Cement</td>
-                                                    <td>Web Development</td>
-                                                    <td>An website for cement & steel purchase, sales and administration.</td>
-                                                    <td>5</td>
-                                                    <td>JayaVarshini, Surya</td>
-                                                    <td>
-                                                <i class="fas fa-folder file-icon" title="Photo" style="color:rgb(228, 137, 27);font-size:30px;"></i>
-                                            </td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                <td>2</td>
-                                                    <td>ABC</td>
-                                                    <td>Kurinji Cement</td>
-                                                    <td>Web Development</td>
-                                                    <td>An website for cement & steel purchase, sales and administration.</td>
-                                                    <td>5</td>
-                                                    <td>JayaVarshini, Surya</td>
-                                                    <td>
-                                                <i class="fas fa-folder file-icon" title="Photo" style="color:rgb(228, 137, 27);font-size:30px;"></i>
-                                            </td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                <td>3</td>
-                                                    <td>ABC</td>
-                                                    <td>Kurinji Cement</td>
-                                                    <td>Web Development</td>
-                                                    <td>An website for cement & steel purchase, sales and administration.</td>
-                                                    <td>5</td>
-                                                    <td>JayaVarshini, Surya</td>
-                                                    <td>
-                                                <i class="fas fa-folder file-icon" title="Photo" style="color:rgb(228, 137, 27);font-size:30px;"></i>
-                                            </td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="projecttype"><b>Project Type:</b></label>
+                                    <select class="form-control form-control-sm" id="projecttype">
+                                        <option value="">Select Project Type</option>
+                                        <option value="Manager">Designing</option>
+                                        <option value="Team Lead">Web Application</option>
+                                        <option value="Software Engineer">Mobile Application</option>
+                                    </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="projecttitle"><b>Project Title:</b></label>
+                                    <textarea class="form-control form-control-sm" id="projecttitle" rows="4" placeholder="Enter Project Title"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="No. of Days"><b>No. of Days:</b></label>
+                                    <input type="number" class="form-control form-control-sm" id="projecttitle" placeholder="Enter No. of Days">
+                                </div>
+                                
                             </div>
-        
+                
+                            <!-- Right Side -->
+                            <div class="col-md-5">
+                            <div class="card p-2 shadow-sm text-center">
+                                <div class="form-group" style="margin-top: 8px; margin-bottom:8px;">
+    <label for="requirementfile" class="upload-label d-block font-weight-bold">
+        <i class="fas fa-camera-retro fa-lg text-primary upload-icon"></i> <!-- Add upload-icon class -->
+        <p class="mt-1">Upload Requirement File</p>
+    </label>
+    <input type="file" class="form-control-file d-none" id="requirementfile" onchange="updateFileName(this, 'requirementfile-name')">
+    <p class="file-name text-muted" id="requirementfile-name">No file chosen</p> <!-- Unique ID -->
+</div>
+</div>
+                                
+                            <div class="mt-4">
+                            <label for="addemployee"><b>Add Employee:</b></label><br>
+    <button type="button" class="btn btn-primary" id="addEmployeeBtn">
+        <i class="fas fa-user-plus"></i>Add Employee
+    </button>
+    <div id="employeeList"></div>
+</div>
+
+                            </div>
                         </div>
-                        <!-- /.container-fluid -->
-        
-                    </div>
-        
-<!-- Add Customer Modal -->
-<!-- <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 25px; overflow: hidden;">
-            <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;" >
-                <h5 class="modal-title" id="addCustomerModalLabel">Add Customer</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                        <button type="submit" class="btn btn-gradient btn-lg mt-3">Submit</button>
+                    </form>
+                </div>
+                
+                
+                <!-- /.container-fluid -->
+
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="customerName">Name:</label>
-                        <input type="text" class="form-control" id="customerName" placeholder="Enter name">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyName">Company Name:</label>
-                        <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneNumber">Phone Number:</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
-                    </div>
-                    <div class="form-group">
-                        <label for="customerAddress">Address:</label>
-                        <textarea class="form-control" id="customerAddress" rows="3" placeholder="Enter address"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Add Customer</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
+
+
+
 
             <!-- End of Main Content -->
 
@@ -477,7 +524,94 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    <script>
+let employees = ["Pavitra", "Jayavarshini", "Suriya","Mohan","Naveen"]; // Available employees
+let selectedEmployees = new Set(); // To track selected employees
+let lastSelect = null; // Track the last added select element
 
+document.getElementById('addEmployeeBtn').addEventListener('click', function () {
+    // Ensure no empty dropdown exists before adding a new one
+    if (lastSelect && lastSelect.value === "") {
+        alert("Please select an employee before adding another.");
+        return;
+    }
+
+    let availableEmployees = employees.filter(emp => !selectedEmployees.has(emp));
+
+    if (availableEmployees.length === 0) {
+        alert("All employees are already added!");
+        return;
+    }
+
+    let div = document.createElement('div');
+    div.classList.add('d-flex', 'align-items-center', 'mt-2');
+
+    let select = document.createElement('select');
+    select.classList.add('form-control', 'form-control-sm', 'mr-2');
+
+    let defaultOption = document.createElement('option');
+    defaultOption.textContent = "Select Employee";
+    defaultOption.value = "";
+    select.appendChild(defaultOption);
+
+    availableEmployees.forEach(emp => {
+        let option = document.createElement('option');
+        option.value = emp;
+        option.textContent = emp;
+        select.appendChild(option);
+    });
+
+    let deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('btn-action', 'btn-delete');
+    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteBtn.onclick = function () {
+        let removedEmployee = select.value;
+        if (removedEmployee) {
+            selectedEmployees.delete(removedEmployee);
+        }
+        div.remove();
+        lastSelect = null; // Allow adding a new dropdown again
+    };
+
+    select.addEventListener('change', function () {
+        selectedEmployees.add(this.value);
+        lastSelect = null; // Enable adding another dropdown
+    });
+
+    div.appendChild(select);
+    div.appendChild(deleteBtn);
+    document.getElementById('employeeList').appendChild(div);
+
+    lastSelect = select; // Track the last added dropdown
+});
+</script>
+<script>
+    function updateFileName(input, fileNameId) {
+        const fileInput = input.files[0];
+        
+        // Ensure the input has a file
+        const fileNameElement = document.getElementById(fileNameId);
+        
+        if (fileInput) {
+            fileNameElement.textContent = fileInput.name;
+            // Change the color to red when a file is uploaded
+            fileNameElement.style.color = 'red';
+        } else {
+            fileNameElement.textContent = "No file chosen";
+            // Reset the color if no file is selected
+            fileNameElement.style.color = 'initial';
+        }
+
+        // Add bounce animation to the icon
+        const icon = input.previousElementSibling.querySelector(".upload-icon");
+        icon.classList.add("bounce");
+
+        // Remove animation after it plays once
+        setTimeout(() => {
+            icon.classList.remove("bounce");
+        }, 500);
+    }
+</script>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -492,7 +626,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -517,7 +651,41 @@
 <!-- Bootstrap 4.6.0 JavaScript -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
+<script>
+function updateFileName(input, fileNameId) {
+    const fileInput = input.files[0];
 
+    // Get the correct file name display element
+    const fileNameElement = document.getElementById(fileNameId);
+    
+    if (!fileNameElement) {
+        console.error("Element with ID '" + fileNameId + "' not found!");
+        return;
+    }
+
+    if (fileInput) {
+        fileNameElement.textContent = fileInput.name;
+        fileNameElement.style.color = 'red';
+    } else {
+        fileNameElement.textContent = "No file chosen";
+        fileNameElement.style.color = 'initial';
+    }
+
+    // Get the upload icon
+    const icon = document.querySelector(".upload-icon");
+    
+    if (icon) {
+        icon.classList.add("bounce");
+
+        // Remove animation after 500ms
+        setTimeout(() => {
+            icon.classList.remove("bounce");
+        }, 500);
+    } else {
+        console.error("Upload icon not found!");
+    }
+}
+</script>
 </body>
 
 </html>
