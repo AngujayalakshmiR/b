@@ -153,7 +153,9 @@
  #dataTable {
         font-size: 14px; /* Adjust size as needed */
     }
-
+tbody{
+    border-color: #f8f9fa;
+}
     /* Reduce padding for table cells */
     #dataTable th, #dataTable td {
         padding: 5px; /* Reduce padding */
@@ -181,6 +183,36 @@
         }
         .status-ongoing { background: orange; color: white; }
         .status-completed { background: green; color: white; }
+/* Fix missing left and bottom borders */
+.table thead tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+.table thead tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+.table-container {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #dee2e6; /* Ensures full border visibility */
+}
+
+/* Remove direct table border to avoid double borders */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+/* Apply border to all cells */
+.table th, .table td {
+    border: 1px solid #dee2e6;
+}
     </style>
 </head>
 
@@ -395,15 +427,14 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Employee Details </h6>
-                            <div>
-                        <input type="date" id="dateFilter" class="form-control d-inline" style="width: auto;">
-                            <button class="btn btn-primary" onclick="filterByDate()">Filter</button>
-                            <button class="btn btn-secondary" onclick="resetFilter()">Reset</button> 
-                            </div>
+                            <div> 
+    <input type="date" id="dateFilter" class="form-control d-inline" style="width: auto;">
+</div>
+
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                            <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                            <div class="table-responsive ">
+                            <table class="table text-center" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
             <th>S.no</th>
@@ -440,7 +471,24 @@
         <tr>
             <td>1</td>
             <td>JayaVarshini</td>
-            <td>01-02-2025</td>
+            <td>07-02-2025</td>
+            <td>ABC Corp</td>
+            <td>Web App</td>
+            <td>Testing</td> <!-- Task Type -->
+            <td>5</td>
+            <td>4.5</td>
+            <td>6</td>
+            <td>
+                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
+            </td> <!-- Module Status -->
+            <td class="project-status">
+                <!-- Status will be updated dynamically -->
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>JayaVarshini</td>
+            <td>07-02-2025</td>
             <td>ABC Corp</td>
             <td>Mobile App</td>
             <td>development</td> <!-- Task Type -->
@@ -534,36 +582,33 @@
 
 
 <script>
-    function filterByDate() {
-        let selectedDate = document.getElementById("dateFilter").value; 
-        if (!selectedDate) {
-            alert("Please select a date.");
-            return;
-        }
+ document.addEventListener("DOMContentLoaded", function () {
+    let today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    let dateInput = document.getElementById("dateFilter");
 
-        let formattedSelectedDate = selectedDate.split("-").reverse().join("-"); // Convert to DD-MM-YYYY
-        let table = document.getElementById("dataTable");
-        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    dateInput.value = today; // Set default to today
+    filterByDate(); // Automatically filter on page load
 
-        for (let i = 0; i < rows.length; i++) {
-            let dateCell = rows[i].getElementsByTagName("td")[2];
-            if (dateCell) {
-                let rowDate = dateCell.textContent.trim();
-                rows[i].style.display = (rowDate === formattedSelectedDate) ? "" : "none";
-            }
+    // Apply filter immediately when date is changed
+    dateInput.addEventListener("change", filterByDate);
+});
+
+function filterByDate() {
+    let selectedDate = document.getElementById("dateFilter").value;
+    if (!selectedDate) return;
+
+    let formattedSelectedDate = selectedDate.split("-").reverse().join("-"); // Convert to DD-MM-YYYY
+    let table = document.getElementById("dataTable");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    for (let i = 0; i < rows.length; i++) {
+        let dateCell = rows[i].getElementsByTagName("td")[2];
+        if (dateCell) {
+            let rowDate = dateCell.textContent.trim();
+            rows[i].style.display = (rowDate === formattedSelectedDate) ? "" : "none";
         }
     }
-
-    function resetFilter() {
-        let table = document.getElementById("dataTable");
-        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].style.display = "";  // Show all rows
-        }
-
-        document.getElementById("dateFilter").value = ""; // Clear date input
-    }
+}
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
