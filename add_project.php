@@ -472,7 +472,7 @@
                             <div class="card p-2 shadow-sm text-center">
                                 <div class="form-group" style="margin-top: 8px; margin-bottom:8px;">
     <label for="requirementfile" class="upload-label d-block font-weight-bold">
-        <i class="fas fa-camera-retro fa-lg text-primary upload-icon"></i> <!-- Add upload-icon class -->
+        <i class="fas fa-folder file-icon fa-lg text-warning upload-icon"></i> <!-- Add upload-icon class -->
         <p class="mt-1">Upload Requirement File</p>
     </label>
     <input type="file" class="form-control-file d-none" id="requirementfile" onchange="updateFileName(this, 'requirementfile-name')">

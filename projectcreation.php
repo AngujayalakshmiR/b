@@ -218,8 +218,8 @@
             </li> -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link active" href="projectcreation.php">
+            <li class="nav-item active">
+                <a class="nav-link " href="projectcreation.php">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Project Creation</span></a>
             </li>

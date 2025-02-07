@@ -152,8 +152,8 @@
      
 
         .container-fluid {
-            max-width: 850px;
-            margin-top: 20px;
+            max-width: 650px;
+            margin-top: 60px;
             margin-bottom: 30px;
             background: white;
             padding: 20px;
@@ -230,7 +230,7 @@
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(to bottom, #4568dc,#4568dc, #b06ab3);">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon " style="font-size: large;">KTG
                 </div>
                 <div class="sidebar-brand-text mx-2" style="font-size: large;">DASHBOARD<sup></sup></div>
@@ -241,7 +241,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -321,21 +321,21 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="projectcreation.php">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Project Creation</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="dailyupdates.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Daily Updates</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="reports.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Work Reports</span></a>
             </li>
@@ -423,68 +423,37 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h4>Add Employee</h4>
-                    <form action="employee.php" method="GET">
+                    <h4>Add Customer</h4><br>
+                    <form action="customer.php" method="GET">
                         <div class="row">
-                            <!-- Left Side -->
-                            <div class="col-md-7">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="employeeName"><b>Name:</b></label>
-                                    <input type="text" class="form-control form-control-sm" id="employeeName" placeholder="Enter name">
+                                    <label for="customerName"><b>Name:</b></label>
+                                    <input type="text" class="form-control" id="customerName" placeholder="Enter name">
                                 </div>
+
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="designation"><b>Designation:</b></label>
-                                    <select class="form-control form-control-sm" id="designation">
-                                        <option value="">Select Designation</option>
-                                        <option value="Manager">Manager</option>
-                                        <option value="Team Lead">Team Lead</option>
-                                        <option value="Software Engineer">Software Engineer</option>
-                                        <option value="HR">HR</option>
-                                        <option value="Intern">Intern</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phoneNumber"><b>Phone Number:</b></label>
-                                    <input type="text" class="form-control form-control-sm" id="phoneNumber" placeholder="Enter phone number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="employeeAddress"><b>Address:</b></label>
-                                    <textarea class="form-control form-control-sm" id="employeeAddress" rows="4" placeholder="Enter address"></textarea>
+                                    <label for="companyName"><b>Company Name:</b></label>
+                                    <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
                                 </div>
                             </div>
-                
-                            <!-- Right Side -->
-                            <div class="col-md-5">
-                                <div class="card p-2 shadow-sm text-center">
-                                    <div class="form-group">
-                                        <label for="employeePhoto" class="upload-label d-block font-weight-bold">
-                                            <i class="fas fa-camera-retro fa-lg text-primary"></i>
-                                            <p class="mt-1">Upload Photo</p>
-                                        </label>
-                                        <input type="file" class="form-control-file d-none" id="employeePhoto" onchange="updateFileName(this, 'photoFileName')">
-                                        <p class="file-name text-muted" id="photoFileName">No file chosen</p>
-                                    </div>
-                
-                                    <div class="form-group">
-                                        <label for="aadharCard" class="upload-label d-block font-weight-bold">
-                                            <i class="fas fa-id-card fa-lg text-success"></i>
-                                            <p class="mt-1">Upload Aadhar Card</p>
-                                        </label>
-                                        <input type="file" class="form-control-file d-none" id="aadharCard" onchange="updateFileName(this, 'aadharFileName')">
-                                        <p class="file-name text-muted" id="aadharFileName">No file chosen</p>
-                                    </div>
-                
-                                    <div class="form-group">
-                                        <label for="panCard" class="upload-label d-block font-weight-bold">
-                                            <i class="fas fa-id-badge fa-lg text-danger"></i>
-                                            <p class="mt-1">Upload Pan Card</p>
-                                        </label>
-                                        <input type="file" class="form-control-file d-none" id="panCard" onchange="updateFileName(this, 'panFileName')">
-                                        <p class="file-name text-muted" id="panFileName">No file chosen</p>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="phoneNumber"><b>Phone Number:</b></label>
+                                    <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
                                 </div>
                             </div>
                         </div>
+                            
+                            
+                            
+                            <div class="form-group">
+                                <label for="customerAddress"><b>Address:</b></label>
+                                <textarea class="form-control" id="customerAddress" rows="3" placeholder="Enter address"></textarea>
+                            </div>
+                           
                         <button type="submit" class="btn btn-gradient btn-lg mt-3">Submit</button>
                     </form>
                 </div>
@@ -534,7 +503,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -559,33 +528,7 @@
 <!-- Bootstrap 4.6.0 JavaScript -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
-<script>
-    function updateFileName(input, fileNameId) {
-        const fileInput = input.files[0];
-        
-        // Ensure the input has a file
-        const fileNameElement = document.getElementById(fileNameId);
-        
-        if (fileInput) {
-            fileNameElement.textContent = fileInput.name;
-            // Change the color to red when a file is uploaded
-            fileNameElement.style.color = 'red';
-        } else {
-            fileNameElement.textContent = "No file chosen";
-            // Reset the color if no file is selected
-            fileNameElement.style.color = 'initial';
-        }
 
-        // Add bounce animation to the icon
-        const icon = input.previousElementSibling.querySelector(".upload-icon");
-        icon.classList.add("bounce");
-
-        // Remove animation after it plays once
-        setTimeout(() => {
-            icon.classList.remove("bounce");
-        }, 500);
-    }
-</script>
 </body>
 
 </html>

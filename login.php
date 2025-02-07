@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,17 +47,17 @@
             width: 100%;
         }
         .btn-custom {
-            background:rgb(252, 76, 255);
+            background:rgba(255, 255, 255, 0.23);
             color: white;
-            border-radius: 5px;
+            border-radius: 25px;
             transition: all 0.3s ease-in-out;
             font-size: 20px;
-            padding: 12px;
+            padding: 8px;
         }
         .btn-custom:hover {
-            background:rgb(154, 77, 218);
             transform: scale(1.05);
-            color: white;
+            color: #4568dc;
+            background-color: white;
         }
         .password-container {
             position: relative;
@@ -95,6 +95,37 @@
             from { transform: translateY(0); opacity: 1; }
             to { transform: translateY(-110vh); opacity: 0; }
         }
+        .btn-custom {
+    background: linear-gradient(45deg,rgb(255, 255, 255),rgb(216, 207, 206));
+    color: #4568dc;
+    border-radius: 25px;
+    font-size: 20px;
+    padding: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(252, 251, 251, 0.5);
+}
+
+.btn-custom:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 6px 15px rgba(223, 220, 219, 0.7);
+}
+
+.btn-custom:active {
+    transform: scale(0.98);
+}
+
+.btn-custom .spinner {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
     </style>
 </head>
 <body>
@@ -104,7 +135,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
                 <div class="login-container">
-                    <h2 class="text-white mb-4">Login</h2>
+                    <h2 class="text-white mb-4"><b>Login</b></h2>
                     <form id="loginForm">
                         <div class="form-group">
                             <input type="text" id="username" class="form-control" placeholder="Username">
@@ -151,50 +182,33 @@
         });
         
     </script>
-<script>
-    $(document).ready(function() {
-        $("#loginForm").submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
-            let username = $("#username").val();
-            let password = $("#password").val();
+   <script>
+$(document).ready(function() {
+    $("#loginForm").submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        let username = $("#username").val();
+        let password = $("#password").val();
+        let loginButton = $(".btn-custom");
 
+        loginButton.html('<span class="spinner-border spinner-border-sm"></span> Logging in...');
+        loginButton.prop("disabled", true);
+
+        setTimeout(function() {
             if (username === "ktgadmin" && password === "ktg2025") {
-                Swal.fire({
-                    title: "Login Successful!",
-                    text: "Welcome back to KTG Task Manager",
-                    icon: "success",
-                    confirmButtonColor: "#6a0dad",
-                    backdrop: `rgba(0, 0, 0, 0.4)`, // Darken overlay but keep content fixed
-                    allowOutsideClick: false, // Prevents closing on outside click
-                    didOpen: () => {
-                        document.body.style.overflow = 'hidden'; // Prevents page movement
-                    },
-                    willClose: () => {
-                        document.body.style.overflow = 'auto'; // Restores scrolling
-                    }
-                }).then(() => {
-                    window.location.href = "index.php";
-                });
+                window.location.href = "index.php";
             } else {
-                Swal.fire({
-                    title: "Login Failed",
-                    text: "Invalid username or password!",
-                    icon: "error",
-                    confirmButtonColor: "#ff4c4c",
-                    backdrop: `rgba(0, 0, 0, 0.4)`, // Ensures no displacement
-                    didOpen: () => {
-                        document.body.style.overflow = 'hidden';
-                    },
-                    willClose: () => {
-                        document.body.style.overflow = 'auto';
-                    }
-                });
+                alert("Login Failed! Invalid username or password.");
+                loginButton.html('Login');
+                loginButton.prop("disabled", false);
             }
-        });
+        }, 2000);
     });
+});
+
+
 </script>
 
 
 
 </body>
-</html> -->
+</html>
