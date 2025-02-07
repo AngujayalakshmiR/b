@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,130 +29,164 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(to bottom, #4568dc,#4568dc, #b06ab3);">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: white;">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon " style="font-size: large;">KTG
-                </div>
-                <div class="sidebar-brand-text mx-2" style="font-size: large;">DASHBOARD<sup></sup></div>
-            </a>
+<!-- Sidebar - Brand -->
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+    <div class="sidebar-brand-icon">KTG</div>
+    <div class="sidebar-brand-text mx-2">DASHBOARD</div>
+</a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+    <a class="nav-link" href="index.php" style="color: white;">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+    </a>
+</li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider" style="margin-bottom: 0px;">
+<!-- Divider -->
+<hr class="sidebar-divider" style="margin-bottom: 0px;">
 
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Interface
-            </div> -->
+<!-- Nav Item - Master -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
+        <i class="fas fa-fw fa-clipboard-list"style="color: black;"></i>
+        <span>Master</span>
+    </a>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="customer.php" style="color: black;">Customer</a>
+            <a class="collapse-item" href="employee.php" style="color: black;">Employee</a>
+            <a class="collapse-item" href="designation.php" style="color: black;">Designation</a>
+            <a class="collapse-item" href="projecttype.php" style="color: black;">Project Type</a>
+        </div>
+    </div>
+</li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-clipboard-list"></i>
-                    <span>Master</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="customer.php">Customer</a>
-                        <a class="collapse-item" href="employee.php">Employee</a>
-                        <a class="collapse-item" href="designation.php">Designation</a>
-                        <a class="collapse-item" href="projecttype.php">Project Type</a>
-                    </div>
-                </div>
-            </li>
+<!-- Divider -->
+<hr class="sidebar-divider" style="margin-bottom: 0px;">
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li> -->
+<!-- Nav Item - Project Creation -->
+<li class="nav-item">
+    <a class="nav-link" href="projectcreation.php" style="color: black;">
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Project Creation</span>
+    </a>
+</li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider" style="margin-bottom: 0px;">
+<hr class="sidebar-divider" style="margin-bottom: 0px;">
 
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Addons
-            </div> -->
+<!-- Nav Item - Daily Updates -->
+<li class="nav-item">
+    <a class="nav-link" href="dailyupdates.php" style="color: black;">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Daily Updates</span>
+    </a>
+</li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li> -->
+<hr class="sidebar-divider" style="margin-bottom: 0px;">
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="projectcreation.php">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Project Creation</span></a>
-            </li>
-            <hr class="sidebar-divider" style="margin-bottom: 0px;">
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="dailyupdates.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Daily Updates</span></a>
-            </li>
-            <hr class="sidebar-divider" style="margin-bottom: 0px;">
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="reports.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Work Reports</span></a>
-            </li>
+<!-- Nav Item - Work Reports -->
+<li class="nav-item">
+    <a class="nav-link" href="reports.php" style="color: black;">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Work Reports</span>
+    </a>
+</li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+<!-- Divider -->
+<hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+<!-- Sidebar Toggler -->
+<div class="text-center d-none d-md-inline">
+    <button class="rounded-circle side border-0" id="sidebarToggle"></button>
+</div>
 
-            
+</ul>
+<style>
+    .sidebar-brand-icon, .sidebar-brand-text {
+        font-size: large;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        -webkit-background-clip: text; /* Clip background to text */
+        -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+        font-weight: bold; /* Optional: Makes text more prominent */
+    }
+    /* Sidebar background */
+    .sidebar {
+        background-color: white !important;
+        width: 250px; /* Adjust according to sidebar width */
+    }
 
-        </ul>
+    /* Sidebar link styles */
+    .nav-item a.nav-link {
+        color: #333 !important; /* Dark text */
+        border-radius: 8px; /* Rounded corners */
+        transition: all 0.3s ease-in-out;
+        padding: 12px 15px;
+        font-size: 16px; /* Increased font size */
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between icon and text */
+        width: 85%; /* Ensure links don’t take full width */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Ensure icons are black */
+    .nav-item a.nav-link i {
+        color: black !important;
+        font-size: 18px; /* Slightly larger icons */
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* Hover effect (only for non-active items) */
+    .nav-item:not(.active) a.nav-link:hover {
+        background-color: #f0f0f0 !important; /* Light grey */
+        color: #000 !important; /* Dark text */
+        border-radius: 8px;
+        width: 90%; /* Keep it smaller than the sidebar */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Keep icons black on hover for non-active items */
+    .nav-item:not(.active) a.nav-link:hover i {
+        color: black !important;
+    }
+
+    /* Active item style */
+    .nav-item.active {
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Active item text & icon color */
+    .nav-item.active a.nav-link {
+        color: white !important;
+        pointer-events: none; /* Prevent hover effect */
+    }
+
+    /* Ensure icons turn white inside active links */
+    .nav-item.active a.nav-link i {
+        color: white !important;
+    }
+    footer{
+        background:linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        padding:15px;
+    }
+</style>
+
+
+
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -500,7 +532,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Knock the Globe Technologies 2025</span>
+                       <h6> <b>Copyright &copy; Knock the Globe Technologies 2025</b></h6>
                     </div>
                 </div>
             </footer>
