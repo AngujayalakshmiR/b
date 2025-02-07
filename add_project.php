@@ -241,7 +241,7 @@
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(to bottom, #4568dc,#4568dc, #b06ab3);">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon " style="font-size: large;">KTG
                 </div>
                 <div class="sidebar-brand-text mx-2" style="font-size: large;">DASHBOARD<sup></sup></div>
@@ -332,21 +332,21 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item active">
-                <a class="nav-link" href="projectcreation.html">
+                <a class="nav-link" href="projectcreation.php">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Project Creation</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="dailyupdates.html">
+                <a class="nav-link" href="dailyupdates.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Daily Updates</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="reports.html">
+                <a class="nav-link" href="reports.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Work Reports</span></a>
             </li>
@@ -626,7 +626,7 @@ document.getElementById('addEmployeeBtn').addEventListener('click', function () 
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Logout</a>
                 </div>
             </div>
         </div>

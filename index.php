@@ -22,11 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <style>
-#wrapper #content-wrapper {
-    background:rgb(168, 210, 237);
-}
-    </style>
+
 </head>
 
 <body id="page-top">
@@ -35,13 +31,13 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background: white;">
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(to bottom, #4568dc,#4568dc, #b06ab3);">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon " style="font-size: large;color:#4568dc">KTG
+                <div class="sidebar-brand-icon " style="font-size: large;">KTG
                 </div>
-                <div class="sidebar-brand-text mx-2" style="font-size: large; color:#4568dc">DASHBOARD<sup></sup></div>
+                <div class="sidebar-brand-text mx-2" style="font-size: large;">DASHBOARD<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -50,12 +46,12 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt" style="color:#4568dc;"></i>
-                    <span style="color:#4568dc;">Dashboard</span></a>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider" style="margin-bottom: 0px;color:#4568dc;" >
+            <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
@@ -63,53 +59,101 @@
             </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" >
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo" style="color:#4568dc;">
-                    <i class="fas fa-fw fa-clipboard-list" style="color:#4568dc;"></i>
-                    <span style="color:#4568dc;">Master</span>
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-clipboard-list"></i>
+                    <span>Master</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="color:#4568dc;">
-                    <div class="py-2 collapse-inner rounded" style="color:#4568dc;">
-                        <a class="collapse-item" href="customer.php" style="color:#4568dc;">Customer</a>
-                        <a class="collapse-item" href="employee.php" style="color:#4568dc;">Employee</a>
-                        <a class="collapse-item" href="designation.php" style="color:#4568dc;">Designation</a>
-                        <a class="collapse-item" href="projecttype.php" style="color:#4568dc;">Project Type</a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="customer.php">Customer</a>
+                        <a class="collapse-item" href="employee.php">Employee</a>
+                        <a class="collapse-item" href="designation.php">Designation</a>
+                        <a class="collapse-item" href="projecttype.php">Project Type</a>
                     </div>
                 </div>
             </li>
 
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Utilities</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
+            </li> -->
+
             <!-- Divider -->
-            <hr class="sidebar-divider" style="margin-bottom: 0px;color:#4568dc;" >
+            <hr class="sidebar-divider" style="margin-bottom: 0px;">
+
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
+                Addons
+            </div> -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="register.html">Register</a>
+                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                    </div>
+                </div>
+            </li> -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item" >
+            <li class="nav-item">
                 <a class="nav-link" href="projectcreation.php">
-                    <i class="fas fa-fw fa-folder" style="color:#4568dc;"></i>
-                    <span style="color:#4568dc;">Project Creation</span></a>
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Project Creation</span></a>
             </li>
-            <hr class="sidebar-divider" style="margin-bottom: 0px;color:#4568dc;">
+            <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="dailyupdates.php">
-                    <i class="fas fa-fw fa-table" style="color:#4568dc;"></i>
-                    <span style="color:#4568dc;">Daily Updates</span></a>
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Daily Updates</span></a>
             </li>
-            <hr class="sidebar-divider" style="margin-bottom: 0px;color:#4568dc;">
+            <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="reports.php">
-                    <i class="fas fa-fw fa-chart-area" style="color:#4568dc;"></i>
-                    <span style="color:#4568dc;">Work Reports</span></a>
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Work Reports</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block" style="margin-bottom: 0px;color:#4568dc;">
+            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
+            
+
         </ul>
         <!-- End of Sidebar -->
 
