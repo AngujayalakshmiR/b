@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" href="img/ktglogo.jpg">
+
     <title>Task Manager</title>
 
     <!-- Custom fonts for this template-->
@@ -113,7 +114,53 @@
     border-bottom-right-radius: 15px;
 }
 
+
+#taskInput {
+    width: 60%;
+}
+
+#taskButton {
+    width: 30%;
+    margin-left: 130px;
+}
+.acontainer{
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Tablets and Medium screens */
+@media (max-width: 992px) {
+    #taskInput {
+        width: 80%;
+    }
+
+    #taskButton {
+        width: 50%;
+        font-size: 14px;
+        
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 768px) {
+    #taskForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #taskInput {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #taskButton {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
     </style>
+    
 </head>
 
 <body id="page-top">
@@ -161,7 +208,7 @@
                         <a class="collapse-item " href="customer.php">Customer</a>
                         <a class="collapse-item" href="employee.php">Employee</a>
                         <a class="collapse-item active" href="designation.php">Designation</a>
-                        <a class="collapse-item" href="projecttype.php">Project Type</a>
+                        <a class="collapse-item " href="projecttype.php">Project Type</a>
                     </div>
                 </div>
             </li>
@@ -322,15 +369,18 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Master > Designation</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Master > Designation Type</h1>
                     
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Designation Details <button class="add-customer-btn" data-toggle="modal" data-target="#addEmployeeTypeModal">
-                                <i class="fas fa-plus"></i> Add Designation
-                            </button></h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Designation Details<form id="taskForm" class="d-flex align-items-center">
+        
+        <input type="text" class="form-control" id="taskInput" placeholder="Enter Designation Type">
+        <button type="submit" class="btn btn-primary" id="taskButton">Add Designation</button>
+        
+</form></h6>
                            
                         </div>
                         <div class="card-body">
@@ -339,7 +389,7 @@
                                     <thead>
                                         <tr class="thead">
                                             <th>S.no</th>
-                                            <th>Designation</th>
+                                            <th>Designation Type</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -355,7 +405,7 @@
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>Web App Developer</td>
+                                            <td>Web Developer</td>
                                            
                                             <td class="action-buttons">
                                                 <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
@@ -382,30 +432,6 @@
 
             </div>
 
-
-<!-- Add Customer Modal -->
-<div class="modal fade" id="addEmployeeTypeModal" tabindex="-1" aria-labelledby="addEmployeeTypeModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content" style="border-radius: 25px; overflow: hidden;"> 
-        <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;">
-            <h5 class="modal-title" id="addEmployeeTypeModalLabel">Add Customer</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <label for="customerName">Designation Options</label>
-                    <input type="text" class="form-control" id="customerName" placeholder="Enter name">
-                </div><hr>
-                <button type="submit" class="btn btn-primary w-100">Add Customer</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-</div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -454,7 +480,7 @@ $(document).ready(function() {
 });
 </script>
 
-   
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -476,7 +502,6 @@ $(document).ready(function() {
     <!-- Bootstrap JavaScript -->
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
 </body>
 
 </html>

@@ -114,7 +114,53 @@
     border-bottom-right-radius: 15px;
 }
 
+
+#taskInput {
+    width: 60%;
+}
+
+#taskButton {
+    width: 30%;
+    margin-left: 130px;
+}
+.acontainer{
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Tablets and Medium screens */
+@media (max-width: 992px) {
+    #taskInput {
+        width: 80%;
+    }
+
+    #taskButton {
+        width: 50%;
+        font-size: 14px;
+        
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 768px) {
+    #taskForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #taskInput {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #taskButton {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
     </style>
+    
 </head>
 
 <body id="page-top">
@@ -329,9 +375,12 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Project Details <button class="add-customer-btn" data-toggle="modal" data-target="#addProjectTypeModal">
-                                <i class="fas fa-plus"></i> Add Project Type
-                            </button></h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Project Details<form id="taskForm" class="d-flex align-items-center">
+        
+        <input type="text" class="form-control" id="taskInput" placeholder="Enter Project Type">
+        <button type="submit" class="btn btn-primary" id="taskButton">Add Project Type</button>
+        
+</form></h6>
                            
                         </div>
                         <div class="card-body">
@@ -383,30 +432,6 @@
 
             </div>
 
-
-<!-- Add Customer Modal -->
-<div class="modal fade" id="addProjectTypeModal" tabindex="-1" aria-labelledby="addProjectTypeModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content" style="border-radius: 25px; overflow: hidden;"> 
-        <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;">
-            <h5 class="modal-title" id="addProjectTypeModalLabel">Add Project Type</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <div class="form-group">
-                    <label for="customerName">Project Options</label>
-                    <input type="text" class="form-control" id="customerName" placeholder="Enter name">
-                </div><hr>
-                <button type="submit" class="btn btn-primary w-100">Add Project Type</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-</div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
