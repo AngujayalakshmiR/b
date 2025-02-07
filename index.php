@@ -125,21 +125,21 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="projectcreation.php">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Project Creation</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="dailyupdates.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Daily Updates</span></a>
             </li>
             <hr class="sidebar-divider" style="margin-bottom: 0px;">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="reports.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Work Reports</span></a>
             </li>
