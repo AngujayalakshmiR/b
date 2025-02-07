@@ -357,9 +357,11 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Employee Details <button class="add-employee-btn" data-toggle="modal" data-target="#addEmployeeModal">
-                                <i class="fas fa-plus"></i> Add Employee
-                            </button></h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Employee Details 
+                                <button class="btn btn-primary" style="float:right;" onclick="window.location.href='add_employee.html'">
+                                    <i class="fas fa-plus"></i>&nbsp Add Employee
+                                </button>
+                            </h6>
                            
                         </div>
                         <div class="card-body">
@@ -370,11 +372,11 @@
                                             <th>S.no</th>
                                             <th>Name</th>
                                             <th>Designation</th>
-                                            <th>Ph Number</th>
+                                            <th>Ph No</th>
                                             <th>Address</th>
                                             <th>Photo</th>
-                                            <th>Aadhar Card</th>
-                                            <th>Pan Card</th>
+                                            <th>Aadhar</th>
+                                            <th>Pan</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -452,81 +454,6 @@
             </div>
 
 
-<!-- Add Employee Modal -->
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="border-radius: 25px; overflow: hidden;">
-            <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;"      >
-                <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <!-- Left Side -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="employeeName">Name:</label>
-                                <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name">
-                            </div>
-                            <div class="form-group">
-                                <label for="designation">Designation:</label>
-                                <input type="text" class="form-control" id="designation" placeholder="Enter designation">
-                            </div>
-                            <div class="form-group">
-                                <label for="phoneNumber">Phone Number:</label>
-                                <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
-                            </div>
-                            <div class="form-group">
-                                <label for="employeeAddress">Address:</label>
-                                <textarea class="form-control" id="employeeAddress" rows="3" placeholder="Enter address"></textarea>
-                            </div>
-                        </div>
-<!-- Right Side -->
-<div class="col-md-6">
-    <div class="card p-3 shadow-sm">
-        
-        <div class="form-group text-center">
-            <label for="employeePhoto" class="upload-label d-block font-weight-bold">
-                <i class="fas fa-camera-retro fa-2x text-primary upload-icon"></i>
-                <p class="mt-2">Upload Photo</p>
-            </label>
-            <input type="file" class="form-control-file d-none" id="employeePhoto" onchange="updateFileName(this, 'photoFileName')">
-            <p class="file-name mt-2 text-muted" id="photoFileName">No file chosen</p>
-        </div>
-
-        <div class="form-group text-center">
-            <label for="aadharCard" class="upload-label d-block font-weight-bold">
-                <i class="fas fa-id-card fa-2x text-success upload-icon"></i>
-                <p class="mt-2">Upload Aadhar Card</p>
-            </label>
-            <input type="file" class="form-control-file d-none" id="aadharCard" onchange="updateFileName(this, 'aadharFileName')">
-            <p class="file-name mt-2 text-muted" id="aadharFileName">No file chosen</p>
-        </div>
-
-        <div class="form-group text-center">
-            <label for="panCard" class="upload-label d-block font-weight-bold">
-                <i class="fas fa-id-badge fa-2x text-danger upload-icon"></i>
-                <p class="mt-2">Upload Pan Card</p>
-            </label>
-            <input type="file" class="form-control-file d-none" id="panCard" onchange="updateFileName(this, 'panFileName')">
-            <p class="file-name mt-2 text-muted" id="panFileName">No file chosen</p>
-        </div>
-
-    </div>
-</div>
-
-
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100 mt-3">Add Employee</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 
             <!-- End of Main Content -->
@@ -593,25 +520,30 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
 <script>
     function updateFileName(input, fileNameId) {
-    const fileInput = input.files[0];
-    
-    // Ensure the input has a file
-    if (fileInput) {
-        document.getElementById(fileNameId).textContent = fileInput.name;
-    } else {
-        document.getElementById(fileNameId).textContent = "No file chosen";
+        const fileInput = input.files[0];
+        
+        // Ensure the input has a file
+        const fileNameElement = document.getElementById(fileNameId);
+        
+        if (fileInput) {
+            fileNameElement.textContent = fileInput.name;
+            // Change the color to red when a file is uploaded
+            fileNameElement.style.color = 'red';
+        } else {
+            fileNameElement.textContent = "No file chosen";
+            // Reset the color if no file is selected
+            fileNameElement.style.color = 'initial';
+        }
+
+        // Add bounce animation to the icon
+        const icon = input.previousElementSibling.querySelector(".upload-icon");
+        icon.classList.add("bounce");
+
+        // Remove animation after it plays once
+        setTimeout(() => {
+            icon.classList.remove("bounce");
+        }, 500);
     }
-
-    // Add bounce animation to the icon
-    const icon = input.previousElementSibling.querySelector(".upload-icon");
-    icon.classList.add("bounce");
-
-    // Remove animation after it plays once
-    setTimeout(() => {
-        icon.classList.remove("bounce");
-    }, 500);
-}
-
 </script>
 </body>
 
