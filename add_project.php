@@ -321,10 +321,15 @@
         transform: scale(1.02); /* Slight lift effect */
         margin: 0 auto; /* Center align */
     }
-    .collapse{
+    .master.active.collapse{
         background:white;
         border-radius: 8px;
 
+    }
+    .collapse{
+        background:	#F8F8F8;
+        border-radius: 10px;
+        color:white;
     }
     .collapse-item.active{
         width: 90%;
@@ -368,10 +373,10 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px; color:#4568dc">
 
 <!-- Nav Item - Master -->
-<li class="nav-item master active">
+<li class="nav-item master">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo" style="color: white;">
-        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px"></i>
+        aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
+        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px; color:black;"></i>
         <span><b>Master</b></span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -379,7 +384,7 @@
             <a class="collapse-item" href="customer.php" style="color: black;"><b>Customer</b></a>
             <a class="collapse-item " href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
-            <a class="collapse-item active" href="projecttype.php" style="color: white;"><b>Project Type</b></a>
+            <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
             <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
@@ -389,7 +394,7 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Project Creation -->
-<li class="nav-item l">
+<li class="nav-item l active">
     <a class="nav-link k" href="projectcreation.php" style="color: black;">
         <i class="fas fa-fw fa-folder" style="font-size:20px"></i>
         <span><b>Project Creation</b></span>
