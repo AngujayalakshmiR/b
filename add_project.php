@@ -508,7 +508,7 @@
 <div class="mt-4 position-relative">
     <label for="addtaskflow"><b>Add Task Flow:</b></label><br>
     <button type="button" class="btn btn-info" id="addtaskflowBtn">
-        <i class="fas fa-user-plus"></i> Add Task Flow
+        <i class="fas fa-tasks"></i>&nbsp Add Task Flow 
     </button>
 
     <!-- Dropdown Container -->
