@@ -367,6 +367,7 @@ tbody{
             <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
+            <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
 </li> 
@@ -622,7 +623,7 @@ tbody{
             <td>The project requires inbuilt updations and notifications.</td>
             <td>UI/UX,Backend,Functionality,Testing</td>
             <td>5</td>
-            <td>Backend</td> <!-- Task Type -->
+            <td>Testing</td> <!-- Task Type -->
             <td>I completed half backend work</td>
             <td>4.5</td>
             <td>2</td>
@@ -742,32 +743,44 @@ function filterByDate() {
 }
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll("tbody tr").forEach(row => {
-            let taskType = row.cells[5].innerText.trim(); // Task Type
-            let moduleStatus = row.cells[12].innerText.trim(); // Module Status
-            let projectStatusCell = row.cells[13]; // Project Status
-
-            if (taskType === "Testing" && moduleStatus.includes("Completed")) {
-                projectStatusCell.innerHTML = `
-                    <button class="btn btn-success btn-sm" onclick="markCompleted(this)">Mark as Completed</button>
-                `;
-            } else {
-                projectStatusCell.innerHTML = `
-                    <button class="btn btn-warning btn-sm">Ongoing</button>
-                `;
-            }
-        });
+setTimeout(function () {
+    document.querySelectorAll("tbody tr").forEach(row => {
+        console.log(`Row has ${row.cells.length} cells`);
+        
+        if (row.cells.length < 13) {
+            console.warn("Skipping row: Some cells are missing.");
+            return;
+        }
+        
+        let taskTypeCell = row.cells[7];
+        let moduleStatusCell = row.cells[11];
+        let projectStatusCell = row.cells[12];
+        
+        let taskType = taskTypeCell.innerText.trim();
+        let moduleStatus = moduleStatusCell.innerText.trim();
+        
+        console.log(`Task Type: ${taskType}, Module Status: ${moduleStatus}`);
+        
+        if (moduleStatus.includes("Completed")&&taskType.includes("Testing") ) {
+            projectStatusCell.innerHTML = `
+                <button class="btn btn-success btn-sm" onclick="markCompleted(this)">Mark as Completed</button>
+            `;
+        } else {
+            projectStatusCell.innerHTML = `
+                <button class="btn btn-warning btn-sm">Ongoing</button>
+            `;
+        }
     });
+}, 2000);
 
-    function markCompleted(button) {
-        let row = button.closest("tr");
-        let projectStatusCell = row.cells[13];
-
-        projectStatusCell.innerHTML = `
-            <span class="text-success"><i class="fas fa-check-circle"></i> Completed</span>
-        `;
-    }
+function markCompleted(button) {
+    let row = button.closest("tr");
+    let projectStatusCell = row.cells[12]; // Adjusted to match correct index
+    
+    projectStatusCell.innerHTML = `
+        <span class="text-success"><i class="fas fa-check-circle"></i> Completed</span>
+    `;
+}
 </script>
 </body>
 

@@ -267,6 +267,7 @@
                         <a class="collapse-item active" href="employee.php">Employee</a>
                         <a class="collapse-item" href="designation.php">Employee Type</a>
                         <a class="collapse-item" href="projecttype.php">Project Type</a>
+                        <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
                     </div>
                 </div>
             </li>
