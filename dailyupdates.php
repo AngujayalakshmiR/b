@@ -214,8 +214,117 @@ tbody{
     border: 1px solid #dee2e6;
 }
     </style>
-activeactive
+
+<style>
+    .sidebar-brand-icon, .sidebar-brand-text {
+        font-size: large;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        -webkit-background-clip: text; /* Clip background to text */
+        -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+        font-weight: bold; /* Optional: Makes text more prominent */
+    }
+    /* Sidebar background */
+    .sidebar {
+        background-color: white !important;
+        width: 250px; /* Adjust according to sidebar width */
+    }
+
+    /* Sidebar link styles */
+    .l a.k{
+        color: #333 !important; /* Dark text */
+        border-radius: 8px; /* Rounded corners */
+        transition: all 0.3s ease-in-out;
+        padding: 12px 15px;
+        font-size: 16px; /* Increased font size */
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between icon and text */
+        width: 85%; /* Ensure links don’t take full width */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Ensure icons are black */
+    .l a.k i {
+        color: black !important;
+        font-size: 18px; /* Slightly larger icons */
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* Hover effect (only for non-active items) */
+    .l:not(.active) a.k:hover {
+        background-color: #f0f0f0 !important; /* Light grey */
+        color: #000 !important; /* Dark text */
+        border-radius: 8px;
+        width: 90%; /* Keep it smaller than the sidebar */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Keep icons black on hover for non-active items */
+    .l:not(.active) a.k:hover i {
+        color: black !important;
+    }
+
+    /* Active item style */
+    .l.active {
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+    .collapse-item.active{
+        width: 90%;
+        background:white;
+        color:white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+    /* Active item text & icon color */
+    .l.active a.k{
+        color: white !important;
+        pointer-events: none; /* Prevent hover effect */
+    }
+
+    /* Ensure icons turn white inside active links */
+    .l.active a.k i {
+        color: white !important;
+    }
+    footer{
+        background:linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        padding:15px;
+    }
+    .master.active{
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+    .collapse{
+        background:white;
+        border-radius: 8px;
+
+    }
+    .collapse-item.active{
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+</style>
+
 </head>
+
+
 
 <body id="page-top">
 
@@ -223,8 +332,7 @@ activeactive
     <div id="wrapper">
 
         <!-- Sidebar -->
-       <!-- Sidebar -->
-       <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: white;">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: white;">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
@@ -250,7 +358,7 @@ activeactive
 <li class="nav-item master">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
-        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px;color:black;"></i>
+        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px; color:black;"></i>
         <span><b>Master</b></span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -267,7 +375,7 @@ activeactive
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Project Creation -->
-<li class="nav-item l ">
+<li class="nav-item l">
     <a class="nav-link k" href="projectcreation.php" style="color: black;">
         <i class="fas fa-fw fa-folder" style="font-size:20px"></i>
         <span><b>Project Creation</b></span>
@@ -312,8 +420,7 @@ activeactive
             <div id="content">
 
                 <!-- Topbar -->
-               <!-- Topbar -->
-               <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style=" background:linear-gradient(to right, #b06ab3, #4568dc);">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style=" background:linear-gradient(to right, #b06ab3, #4568dc);">
 
 <!-- Sidebar Toggle (Topbar) -->
 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

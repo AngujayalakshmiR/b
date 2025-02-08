@@ -325,6 +325,7 @@
         margin: 0 auto; /* Center align */
     }
 </style>
+
 </head>
 
 <body id="page-top">
@@ -359,10 +360,10 @@
 <li class="nav-item master active">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo" style="color: white;">
-        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px;color:white;"></i>
+        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px"></i>
         <span><b>Master</b></span>
     </a>
-    <div id="collapseTwo " class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item " href="customer.php" style="color: black;"><b>Customer</b></a>
             <a class="collapse-item active" href="employee.php" style="color: white;"><b>Employee</b></a>
@@ -376,7 +377,7 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Project Creation -->
-<li class="nav-item l ">
+<li class="nav-item l">
     <a class="nav-link k" href="projectcreation.php" style="color: black;">
         <i class="fas fa-fw fa-folder" style="font-size:20px"></i>
         <span><b>Project Creation</b></span>
