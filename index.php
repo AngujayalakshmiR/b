@@ -33,8 +33,8 @@
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-    <div class="sidebar-brand-icon">KTG</div>
-    <div class="sidebar-brand-text mx-2">DASHBOARD</div>
+    <div class="sidebar-brand-icon" style='font-size:20px'><b>KTG</b></div>
+    <div class="sidebar-brand-text mx-2" style='font-size:20px'><b>DASHBOARD</b></div>
 </a>
 
 <!-- Divider -->
@@ -43,8 +43,8 @@
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
     <a class="nav-link" href="index.php" style="color: white;">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span>
+        <i class="fas fa-fw fa-tachometer-alt" style="font-size:20px"></i>
+        <span><b>Dashboard</b></span>
     </a>
 </li>
 
@@ -55,8 +55,8 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
-        <i class="fas fa-fw fa-clipboard-list"style="color: black;"></i>
-        <span>Master</span>
+        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px"></i>
+        <span><b>Master</b></span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -74,8 +74,8 @@
 <!-- Nav Item - Project Creation -->
 <li class="nav-item">
     <a class="nav-link" href="projectcreation.php" style="color: black;">
-        <i class="fas fa-fw fa-folder"></i>
-        <span>Project Creation</span>
+        <i class="fas fa-fw fa-folder" style="font-size:20px"></i>
+        <span><b>Project Creation</b></span>
     </a>
 </li>
 
@@ -84,8 +84,8 @@
 <!-- Nav Item - Daily Updates -->
 <li class="nav-item">
     <a class="nav-link" href="dailyupdates.php" style="color: black;">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Daily Updates</span>
+        <i class="fas fa-fw fa-table" style="font-size:20px"></i>
+        <span><b>Daily Updates</b></span>
     </a>
 </li>
 
@@ -94,8 +94,8 @@
 <!-- Nav Item - Work Reports -->
 <li class="nav-item">
     <a class="nav-link" href="reports.php" style="color: black;">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Work Reports</span>
+        <i class="fas fa-fw fa-chart-area" style="font-size:20px"></i>
+        <span><b>Work Reports</b></span>
     </a>
 </li>
 
@@ -196,7 +196,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style=" background:linear-gradient(to right, #b06ab3, #4568dc);">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -239,7 +239,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle"
-                                    src="img/profileicon.png" style="width: 3rem;height: 3rem;">
+                                    src="img/profile.png" style="width: 3rem;height: 3rem;">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
