@@ -440,14 +440,15 @@
                             <!-- Left Side -->
                             <div class="col-md-7">
                             <div class="form-group">
-                                    <label for="customer"><b>Company Name:</b></label>
+                                    <label for="customer"><b>Customer</b></label>
                                     <select class="form-control form-control-sm" id="customer">
                                         <option value="">Select Customer Company</option>
                                         <option value="Kurinji Cements">Kurinji Cements</option>
                                         <option value="Gowin">Gowin</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
+                                <div class="form-group col-6">
                                     <label for="projecttype"><b>Project Type:</b></label>
                                     <select class="form-control form-control-sm" id="projecttype">
                                         <option value="">Select Project Type</option>
@@ -456,14 +457,16 @@
                                         <option value="Software Engineer">Mobile Application</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-6">
+                                    <label for="No. of Days"><b>No. of Days:</b></label>
+                                    <input type="number" class="form-control form-control-sm" id="days" placeholder="Enter No. of Days">
+                                </div></div>
                                 <div class="form-group">
                                     <label for="projecttitle"><b>Project Title:</b></label>
-                                    <textarea class="form-control form-control-sm" id="projecttitle" rows="4" placeholder="Enter Project Title"></textarea>
+                                    <!-- <textarea class="form-control form-control-sm" id="projecttitle" rows="1" placeholder="Enter Project Title"></textarea> -->
+                                    <input type="text" class="form-control form-control-sm" id="projecttitle" placeholder="Enter Project Title">
                                 </div>
-                                <div class="form-group">
-                                    <label for="No. of Days"><b>No. of Days:</b></label>
-                                    <input type="number" class="form-control form-control-sm" id="projecttitle" placeholder="Enter No. of Days">
-                                </div>
+                                
                                 
                             </div>
                 
@@ -479,14 +482,31 @@
     <p class="file-name text-muted" id="requirementfile-name">No file chosen</p> <!-- Unique ID -->
 </div>
 </div>
-                                
-                            <div class="mt-4">
-                            <label for="addemployee"><b>Add Employee:</b></label><br>
+<div class="mt-4 position-relative">
+    <label for="addemployee"><b>Add Employee:</b></label><br>
     <button type="button" class="btn btn-primary" id="addEmployeeBtn">
-        <i class="fas fa-user-plus"></i>Add Employee
+        <i class="fas fa-user-plus"></i> Add Employee
     </button>
-    <div id="employeeList"></div>
+
+    <!-- Dropdown Container -->
+    <div id="dropdownContainer" class="mt-2 p-3 rounded shadow" 
+        style="display: none; border: 1px solid #ccc; background: white; position: absolute; width: auto; min-width: 320px; z-index: 100;">
+        
+        <div id="employeeDropdown" class="row"></div>
+
+        <!-- OK Button in Bottom-Right -->
+        <div class="d-flex justify-content-end mt-2">
+            <button type="button" class="btn btn-success btn-sm px-3" id="confirmSelection">OK</button>
+        </div>
+    </div>
+
+    <!-- Selected Employees Display -->
+    <div id="selectedEmployeesContainer" class="mt-2"><b>Selected Employees:</b> 
+        <span id="selectedEmployees">Nil</span>
+    </div>
 </div>
+
+
 
                             </div>
                         </div>
@@ -525,64 +545,53 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <script>
-let employees = ["Pavitra", "Jayavarshini", "Suriya","Mohan","Naveen"]; // Available employees
-let selectedEmployees = new Set(); // To track selected employees
-let lastSelect = null; // Track the last added select element
+let employees = ["Pavitra", "Jayavarshini", "Suriya", "Mohan", "Naveen", "Anbumani", "Sivakumar", "Venkatesh"];
+employees.sort(); // Sort employees alphabetically
+let selectedEmployees = new Set();
 
 document.getElementById('addEmployeeBtn').addEventListener('click', function () {
-    // Ensure no empty dropdown exists before adding a new one
-    if (lastSelect && lastSelect.value === "") {
-        alert("Please select an employee before adding another.");
-        return;
-    }
+    let dropdownContainer = document.getElementById('dropdownContainer');
+    let dropdownList = document.getElementById('employeeDropdown');
 
-    let availableEmployees = employees.filter(emp => !selectedEmployees.has(emp));
+    dropdownContainer.style.display = 'block'; // Show dropdown
+    dropdownList.innerHTML = ''; // Clear previous list
 
-    if (availableEmployees.length === 0) {
-        alert("All employees are already added!");
-        return;
-    }
+    employees.forEach(emp => {
+        let wrapper = document.createElement('div');
+        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1'); // Ensures spacing & alignment
 
-    let div = document.createElement('div');
-    div.classList.add('d-flex', 'align-items-center', 'mt-2');
+        let label = document.createElement('label');
+        label.textContent = emp;
+        label.classList.add('mr-auto', 'text-wrap'); // Ensures full text visibility
+        label.style.wordBreak = 'break-word'; // Ensures long names wrap properly
+        label.style.flex = '1'; // Takes available space in col-6
+        label.style.marginBottom = "0"; // Removes extra space below
+        label.style.whiteSpace = 'normal'; // Allows multi-line text
 
-    let select = document.createElement('select');
-    select.classList.add('form-control', 'form-control-sm', 'mr-2');
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = emp;
+        checkbox.checked = selectedEmployees.has(emp);
 
-    let defaultOption = document.createElement('option');
-    defaultOption.textContent = "Select Employee";
-    defaultOption.value = "";
-    select.appendChild(defaultOption);
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                selectedEmployees.add(this.value);
+            } else {
+                selectedEmployees.delete(this.value);
+            }
+        });
 
-    availableEmployees.forEach(emp => {
-        let option = document.createElement('option');
-        option.value = emp;
-        option.textContent = emp;
-        select.appendChild(option);
+        wrapper.appendChild(label);
+        wrapper.appendChild(checkbox);
+        dropdownList.appendChild(wrapper);
     });
+});
 
-    let deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('btn-action', 'btn-delete');
-    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-    deleteBtn.onclick = function () {
-        let removedEmployee = select.value;
-        if (removedEmployee) {
-            selectedEmployees.delete(removedEmployee);
-        }
-        div.remove();
-        lastSelect = null; // Allow adding a new dropdown again
-    };
-
-    select.addEventListener('change', function () {
-        selectedEmployees.add(this.value);
-        lastSelect = null; // Enable adding another dropdown
-    });
-
-    div.appendChild(select);
-    div.appendChild(deleteBtn);
-    document.getElementById('employeeList').appendChild(div);
-
-    lastSelect = select; // Track the last added dropdown
+// OK Button Click - Prevents Refresh & Updates Selection
+document.getElementById('confirmSelection').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('dropdownContainer').style.display = 'none';
+    document.getElementById('selectedEmployees').textContent = [...selectedEmployees].join(', ');
 });
 </script>
 <script>

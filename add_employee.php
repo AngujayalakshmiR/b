@@ -432,7 +432,8 @@
                                     <label for="employeeName"><b>Name:</b></label>
                                     <input type="text" class="form-control form-control-sm" id="employeeName" placeholder="Enter name">
                                 </div>
-                                <div class="form-group">
+                                <div class="row">
+                                <div class="form-group col-6">
                                     <label for="designation"><b>Designation:</b></label>
                                     <select class="form-control form-control-sm" id="designation">
                                         <option value="">Select Designation</option>
@@ -443,14 +444,23 @@
                                         <option value="Intern">Intern</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-6">
                                     <label for="phoneNumber"><b>Phone Number:</b></label>
                                     <input type="text" class="form-control form-control-sm" id="phoneNumber" placeholder="Enter phone number">
-                                </div>
+                                </div></div>
                                 <div class="form-group">
                                     <label for="employeeAddress"><b>Address:</b></label>
                                     <textarea class="form-control form-control-sm" id="employeeAddress" rows="4" placeholder="Enter address"></textarea>
                                 </div>
+                                <div class="row">
+                                <div class="form-group col-6">
+                                <label for="username"><b>Username:</b></label>
+                                <input type="text" class="form-control form-control-sm" id="username" placeholder="Enter Username">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="password"><b>Password:</b></label>
+                                    <input type="text" class="form-control form-control-sm" id="password" placeholder="Enter Password">
+                                </div></div>
                             </div>
                 
                             <!-- Right Side -->
