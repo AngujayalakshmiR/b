@@ -145,7 +145,7 @@
 }
 
     </style>
-     <style>
+<style>
     .sidebar-brand-icon, .sidebar-brand-text {
         font-size: large;
         background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -568,33 +568,7 @@
 <!-- Bootstrap 4.6.0 JavaScript -->
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
-<script>
-    function updateFileName(input, fileNameId) {
-        const fileInput = input.files[0];
-        
-        // Ensure the input has a file
-        const fileNameElement = document.getElementById(fileNameId);
-        
-        if (fileInput) {
-            fileNameElement.textContent = fileInput.name;
-            // Change the color to red when a file is uploaded
-            fileNameElement.style.color = 'red';
-        } else {
-            fileNameElement.textContent = "No file chosen";
-            // Reset the color if no file is selected
-            fileNameElement.style.color = 'initial';
-        }
 
-        // Add bounce animation to the icon
-        const icon = input.previousElementSibling.querySelector(".upload-icon");
-        icon.classList.add("bounce");
-
-        // Remove animation after it plays once
-        setTimeout(() => {
-            icon.classList.remove("bounce");
-        }, 500);
-    }
-</script>
 </body>
 
 </html>
