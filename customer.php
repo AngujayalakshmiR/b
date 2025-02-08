@@ -222,6 +222,9 @@
         transform: scale(1.02); /* Slight lift effect */
         margin: 0 auto; /* Center align */
     }
+
+
+    
 </style>
 
 </head>
@@ -402,13 +405,31 @@
         
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Customer Details  <button class="btn btn-primary" style="float:right;" onclick="window.location.href='add_customer.php'">
-                                    <i class="fas fa-plus"></i> &nbsp Add Customer
-                                     </button>
-                            </h6>
-                                   
-                                </div>
+                            <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Customer Details</h6>
+<form id="customerForm" class="row g-3 mt-3">
+    <!-- Column 1: Name & Company Name -->
+    <div class="col-md-4 p-2">
+        <input type="text" class="form-control mb-2" id="customername" placeholder="Enter Customer Name">
+        <input type="text" class="form-control" id="companyname" placeholder="Enter Company Name">
+    </div>
+
+    <!-- Column 2: Address -->
+    <div class="col-md-4 p-2">
+        <textarea class="form-control h-100" id="customeraddress" placeholder="Enter Company Address" rows="3"></textarea>
+    </div>
+
+    <!-- Column 3: Phone Number & Submit Button -->
+    <div class="col-md-4 p-2">
+        <input type="text" class="form-control mb-2" id="customerno" placeholder="Enter Phone Number">
+        <button type="submit" class="btn btn-primary w-100" id="customerbtn">Add Customer</button>
+    </div>
+</form>
+
+
+
+                           
+                        </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
