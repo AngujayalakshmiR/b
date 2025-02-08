@@ -466,13 +466,7 @@
                                     <!-- <textarea class="form-control form-control-sm" id="projecttitle" rows="1" placeholder="Enter Project Title"></textarea> -->
                                     <input type="text" class="form-control form-control-sm" id="projecttitle" placeholder="Enter Project Title">
                                 </div>
-                                
-                                
-                            </div>
-                
-                            <!-- Right Side -->
-                            <div class="col-md-5">
-                            <div class="card p-2 shadow-sm text-center">
+                                <div class="card p-2 shadow-sm text-center">
                                 <div class="form-group" style="margin-top: 8px; margin-bottom:8px;">
     <label for="requirementfile" class="upload-label d-block font-weight-bold">
         <i class="fas fa-folder file-icon fa-lg text-warning upload-icon"></i> <!-- Add upload-icon class -->
@@ -482,9 +476,15 @@
     <p class="file-name text-muted" id="requirementfile-name">No file chosen</p> <!-- Unique ID -->
 </div>
 </div>
+                                
+                            </div>
+                
+                            <!-- Right Side -->
+                            <div class="col-md-5">
+                           
 <div class="mt-4 position-relative">
     <label for="addemployee"><b>Add Employee:</b></label><br>
-    <button type="button" class="btn btn-primary" id="addEmployeeBtn">
+    <button type="button" class="btn btn-warning" id="addEmployeeBtn">
         <i class="fas fa-user-plus"></i> Add Employee
     </button>
 
@@ -505,7 +505,29 @@
         <span id="selectedEmployees">Nil</span>
     </div>
 </div>
+<div class="mt-4 position-relative">
+    <label for="addtaskflow"><b>Add Task Flow:</b></label><br>
+    <button type="button" class="btn btn-info" id="addtaskflowBtn">
+        <i class="fas fa-user-plus"></i> Add Task Flow
+    </button>
 
+    <!-- Dropdown Container -->
+    <div id="dropdownContainer1" class="mt-2 p-3 rounded shadow" 
+        style="display: none; border: 1px solid #ccc; background: white; position: absolute; width: auto; min-width: 320px; z-index: 100;">
+        
+        <div id="taskflowDropdown" class="row"></div>
+
+        <!-- OK Button in Bottom-Right -->
+        <div class="d-flex justify-content-end mt-2">
+            <button type="button" class="btn btn-success btn-sm px-3" id="confirmSelection1">OK</button>
+        </div>
+    </div>
+
+    <!-- Selected Employees Display -->
+    <div id="selectedtaskflowContainer" class="mt-2"><b>Selected Task Flow:</b> 
+        <span id="selectedtaskflow">Nil</span>
+    </div>
+</div>
 
 
                             </div>
@@ -545,6 +567,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <script>
+// Employee Dropdown Logic
 let employees = ["Pavitra", "Jayavarshini", "Suriya", "Mohan", "Naveen", "Anbumani", "Sivakumar", "Venkatesh"];
 employees.sort(); // Sort employees alphabetically
 let selectedEmployees = new Set();
@@ -558,15 +581,15 @@ document.getElementById('addEmployeeBtn').addEventListener('click', function () 
 
     employees.forEach(emp => {
         let wrapper = document.createElement('div');
-        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1'); // Ensures spacing & alignment
+        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1'); 
 
         let label = document.createElement('label');
         label.textContent = emp;
-        label.classList.add('mr-auto', 'text-wrap'); // Ensures full text visibility
-        label.style.wordBreak = 'break-word'; // Ensures long names wrap properly
-        label.style.flex = '1'; // Takes available space in col-6
-        label.style.marginBottom = "0"; // Removes extra space below
-        label.style.whiteSpace = 'normal'; // Allows multi-line text
+        label.classList.add('mr-auto', 'text-wrap');
+        label.style.wordBreak = 'break-word';
+        label.style.flex = '1';
+        label.style.marginBottom = "0";
+        label.style.whiteSpace = 'normal';
 
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -587,11 +610,61 @@ document.getElementById('addEmployeeBtn').addEventListener('click', function () 
     });
 });
 
-// OK Button Click - Prevents Refresh & Updates Selection
+// OK Button Click - Updates Selection
 document.getElementById('confirmSelection').addEventListener('click', function (event) {
     event.preventDefault();
     document.getElementById('dropdownContainer').style.display = 'none';
-    document.getElementById('selectedEmployees').textContent = [...selectedEmployees].join(', ');
+    document.getElementById('selectedEmployees').textContent = [...selectedEmployees].join(', ') || "Nil";
+});
+
+// Task Flow Dropdown Logic
+let taskflow = ["UI/UX", "Backend", "Functionality", "Testing", "Designing"];
+taskflow.sort();
+let selectedTaskflow = new Set();
+
+document.getElementById('addtaskflowBtn').addEventListener('click', function () {
+    let dropdownContainer = document.getElementById('dropdownContainer1');
+    let dropdownList = document.getElementById('taskflowDropdown');
+
+    dropdownContainer.style.display = 'block'; // Show dropdown
+    dropdownList.innerHTML = ''; // Clear previous list
+
+    taskflow.forEach(task => {
+        let wrapper = document.createElement('div');
+        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1');
+
+        let label = document.createElement('label');
+        label.textContent = task;
+        label.classList.add('mr-auto', 'text-wrap');
+        label.style.wordBreak = 'break-word';
+        label.style.flex = '1';
+        label.style.marginBottom = "0";
+        label.style.whiteSpace = 'normal';
+
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = task;
+        checkbox.checked = selectedTaskflow.has(task);
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                selectedTaskflow.add(this.value);
+            } else {
+                selectedTaskflow.delete(this.value);
+            }
+        });
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(checkbox);
+        dropdownList.appendChild(wrapper);
+    });
+});
+
+// OK Button Click - Updates Task Flow Selection
+document.getElementById('confirmSelection1').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('dropdownContainer1').style.display = 'none';
+    document.getElementById('selectedtaskflow').textContent = [...selectedTaskflow].join(', ') || "Nil";
 });
 </script>
 <script>

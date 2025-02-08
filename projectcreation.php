@@ -29,7 +29,11 @@
     border-collapse: separate; /* Required for border-radius to work properly */
     border-spacing: 0; /* Removes unwanted gaps */
 }
-
+.thead th {
+    font-size: 16px;  /* Reduce text size */
+    padding: 6px 4px; /* Reduce padding */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
 /* Rounds top corners */
 .table thead tr:first-child th:first-child {
     border-top-left-radius: 15px;
@@ -354,6 +358,7 @@
                                                     <th>Company</th>
                                                     <th>Project type</th>
                                                     <th>Project Title</th>
+                                                    <th>Task Flow</th>
                                                     <th>Days</th>
                                                     <th>Employees</th>
                                                     <th>Requirement</th>
@@ -367,6 +372,7 @@
                                                     <td>Kurinji Cement</td>
                                                     <td>Web Development</td>
                                                     <td>An website for cement & steel purchase, sales and administration.</td>
+                                                    <td>UI/UX, Backend, Functionality,Testing</td>
                                                     <td>5</td>
                                                     <td>JayaVarshini, Surya</td>
                                                     <td>
@@ -380,9 +386,10 @@
                                                 <tr>
                                                 <td>2</td>
                                                     <td>ABC</td>
-                                                    <td>Kurinji Cement</td>
-                                                    <td>Web Development</td>
+                                                    <td>Green Home</td>
+                                                    <td>Mobile Development</td>
                                                     <td>An website for cement & steel purchase, sales and administration.</td>
+                                                    <td>UI/UX, Backend, Functionality,Testing</td>
                                                     <td>5</td>
                                                     <td>JayaVarshini, Surya</td>
                                                     <td>
@@ -396,9 +403,10 @@
                                                 <tr>
                                                 <td>3</td>
                                                     <td>ABC</td>
-                                                    <td>Kurinji Cement</td>
-                                                    <td>Web Development</td>
+                                                    <td>Gowin</td>
+                                                    <td>Poster Designing</td>
                                                     <td>An website for cement & steel purchase, sales and administration.</td>
+                                                    <td>UI/UX,Testing</td>
                                                     <td>5</td>
                                                     <td>JayaVarshini, Surya</td>
                                                     <td>
