@@ -208,6 +208,20 @@
         transform: scale(1.02); /* Slight lift effect */
         margin: 0 auto; /* Center align */
     }
+    .collapse{
+        background:white;
+        border-radius: 8px;
+
+    }
+    .collapse-item.active{
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
 </style>
 
 </head>
@@ -250,7 +264,7 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="customer.php" style="color: black;"><b>Customer</b></a>
+            <a class="collapse-item active" href="customer.php" style="color: white;"><b>Customer</b></a>
             <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
