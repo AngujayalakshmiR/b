@@ -160,7 +160,7 @@
     }
 }
     </style>
-    <style>
+<style>
     .sidebar-brand-icon, .sidebar-brand-text {
         font-size: large;
         background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -251,10 +251,15 @@
         transform: scale(1.02); /* Slight lift effect */
         margin: 0 auto; /* Center align */
     }
-    .collapse{
+    .master.active.collapse{
         background:white;
         border-radius: 8px;
 
+    }
+    .collapse{
+        background:	#F8F8F8;
+        border-radius: 10px;
+        color:white;
     }
     .collapse-item.active{
         width: 90%;

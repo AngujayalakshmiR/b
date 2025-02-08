@@ -41,8 +41,8 @@
 <hr class="sidebar-divider my-0">
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="index.php" style="color: white;">
+<li class="nav-item active l">
+    <a class="nav-link k" href="index.php" style="color: white;">
         <i class="fas fa-fw fa-tachometer-alt" style="font-size:20px"></i>
         <span><b>Dashboard</b></span>
     </a>
@@ -52,18 +52,18 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Master -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+<li class="nav-item l master">
+    <a class="nav-link k collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
-        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px"></i>
+        <i class="fas fa-fw fa-clipboard-list" style="font-size:20px; color:black;"></i>
         <span><b>Master</b></span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="customer.php" style="color: black;">Customer</a>
-            <a class="collapse-item" href="employee.php" style="color: black;">Employee</a>
-            <a class="collapse-item" href="designation.php" style="color: black;">Designation</a>
-            <a class="collapse-item" href="projecttype.php" style="color: black;">Project Type</a>
+            <a class="collapse-item" href="customer.php" style="color: black;"><b>Customer</b></a>
+            <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
+            <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
+            <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
             <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
@@ -73,8 +73,8 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Project Creation -->
-<li class="nav-item">
-    <a class="nav-link" href="projectcreation.php" style="color: black;">
+<li class="nav-item l">
+    <a class="nav-link k" href="projectcreation.php" style="color: black;">
         <i class="fas fa-fw fa-folder" style="font-size:20px"></i>
         <span><b>Project Creation</b></span>
     </a>
@@ -83,8 +83,8 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Daily Updates -->
-<li class="nav-item">
-    <a class="nav-link" href="dailyupdates.php" style="color: black;">
+<li class="nav-item l">
+    <a class="nav-link k" href="dailyupdates.php" style="color: black;">
         <i class="fas fa-fw fa-table" style="font-size:20px"></i>
         <span><b>Daily Updates</b></span>
     </a>
@@ -93,8 +93,8 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px;">
 
 <!-- Nav Item - Work Reports -->
-<li class="nav-item">
-    <a class="nav-link" href="reports.php" style="color: black;">
+<li class="nav-item l">
+    <a class="nav-link k" href="reports.php" style="color: black;">
         <i class="fas fa-fw fa-chart-area" style="font-size:20px"></i>
         <span><b>Work Reports</b></span>
     </a>
@@ -109,7 +109,7 @@
 </div>
 
 </ul>
-<style>
+<!-- <style>
     .sidebar-brand-icon, .sidebar-brand-text {
         font-size: large;
         background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -183,10 +183,111 @@
         color:white;
         padding:15px;
     }
+</style> -->
+
+
+<style>
+    .sidebar-brand-icon, .sidebar-brand-text {
+        font-size: large;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        -webkit-background-clip: text; /* Clip background to text */
+        -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+        font-weight: bold; /* Optional: Makes text more prominent */
+    }
+    /* Sidebar background */
+    .sidebar {
+        background-color: white !important;
+        width: 250px; /* Adjust according to sidebar width */
+    }
+
+    /* Sidebar link styles */
+    .l a.k{
+        color: #333 !important; /* Dark text */
+        border-radius: 8px; /* Rounded corners */
+        transition: all 0.3s ease-in-out;
+        padding: 12px 15px;
+        font-size: 16px; /* Increased font size */
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between icon and text */
+        width: 85%; /* Ensure links don’t take full width */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Ensure icons are black */
+    .l a.k i {
+        color: black !important;
+        font-size: 18px; /* Slightly larger icons */
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* Hover effect (only for non-active items) */
+    .l:not(.active) a.k:hover {
+        background-color: #f0f0f0 !important; /* Light grey */
+        color: #000 !important; /* Dark text */
+        border-radius: 8px;
+        width: 90%; /* Keep it smaller than the sidebar */
+        margin: 0 auto; /* Center align */
+    }
+
+    /* Keep icons black on hover for non-active items */
+    .l:not(.active) a.k:hover i {
+        color: black !important;
+    }
+
+    /* Active item style */
+    .l.active {
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+   
+    /* Active item text & icon color */
+    .l.active a.k{
+        color: white !important;
+    }
+
+    /* Ensure icons turn white inside active links */
+    .l.active a.k i {
+        color: white !important;
+    }
+    footer{
+        background:linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        padding:15px;
+    }
+    .master.active{
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
+    .master.active.collapse{
+        background:white;
+        border-radius: 8px;
+
+    }
+    .collapse{
+        background:	#F8F8F8;
+        border-radius: 10px;
+        color:white;
+    }
+    .collapse-item.active{
+        width: 90%;
+        background: linear-gradient(to right, #4568dc, #b06ab3);
+        color:white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transform: scale(1.02); /* Slight lift effect */
+        margin: 0 auto; /* Center align */
+    }
 </style>
-
-
-
 
         <!-- End of Sidebar -->
 
