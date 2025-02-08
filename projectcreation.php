@@ -192,7 +192,6 @@
     /* Active item text & icon color */
     .l.active a.k{
         color: white !important;
-        pointer-events: none; /* Prevent hover effect */
     }
 
     /* Ensure icons turn white inside active links */
@@ -265,8 +264,8 @@
 <hr class="sidebar-divider" style="margin-bottom: 0px; color:#4568dc">
 
 <!-- Nav Item - Master -->
-<li class="nav-item master">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+<li class="nav-item master l">
+    <a class="nav-link k collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo" style="color: black;">
         <i class="fas fa-fw fa-clipboard-list" style="font-size:20px;color:black;"></i>
         <span><b>Master</b></span>
