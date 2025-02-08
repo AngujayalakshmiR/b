@@ -132,7 +132,7 @@
     }
 
     /* Sidebar link styles */
-    .l a.nav-link {
+    .l a.k{
         color: #333 !important; /* Dark text */
         border-radius: 8px; /* Rounded corners */
         transition: all 0.3s ease-in-out;
@@ -146,14 +146,14 @@
     }
 
     /* Ensure icons are black */
-    .l a.nav-link i {
+    .l a.k i {
         color: black !important;
         font-size: 18px; /* Slightly larger icons */
         transition: color 0.3s ease-in-out;
     }
 
     /* Hover effect (only for non-active items) */
-    .l:not(.active) a.nav-link:hover {
+    .l:not(.active) a.k:hover {
         background-color: #f0f0f0 !important; /* Light grey */
         color: #000 !important; /* Dark text */
         border-radius: 8px;
@@ -162,7 +162,7 @@
     }
 
     /* Keep icons black on hover for non-active items */
-    .l:not(.active) a.nav-link:hover i {
+    .l:not(.active) a.k:hover i {
         color: black !important;
     }
 
@@ -185,13 +185,13 @@
         margin: 0 auto; /* Center align */
     }
     /* Active item text & icon color */
-    .l.active a.nav-link {
+    .l.active a.k{
         color: white !important;
         pointer-events: none; /* Prevent hover effect */
     }
 
     /* Ensure icons turn white inside active links */
-    .l.active a.nav-link i {
+    .l.active a.k i {
         color: white !important;
     }
     footer{
@@ -232,7 +232,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item l ">
-    <a class="nav-link" href="index.php" style="color: white;">
+    <a class="nav-link k" href="index.php" style="color: white;">
         <i class="fas fa-fw fa-tachometer-alt" style="font-size:20px"></i>
         <span><b>Dashboard</b></span>
     </a>
@@ -250,10 +250,10 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="customer.php" style="color: black;">Customer</a>
-            <a class="collapse-item" href="employee.php" style="color: black;">Employee</a>
-            <a class="collapse-item" href="designation.php" style="color: black;">Designation</a>
-            <a class="collapse-item" href="projecttype.php" style="color: black;">Project Type</a>
+            <a class="collapse-item active" href="customer.php" style="color: black;"><b>Customer</b></a>
+            <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
+            <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
+            <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
         </div>
     </div>
 </li> 
@@ -263,7 +263,7 @@
 
 <!-- Nav Item - Project Creation -->
 <li class="nav-item l">
-    <a class="nav-link" href="projectcreation.php" style="color: black;">
+    <a class="nav-link k" href="projectcreation.php" style="color: black;">
         <i class="fas fa-fw fa-folder" style="font-size:20px"></i>
         <span><b>Project Creation</b></span>
     </a>
@@ -273,7 +273,7 @@
 
 <!-- Nav Item - Daily Updates -->
 <li class="nav-item l">
-    <a class="nav-link" href="dailyupdates.php" style="color: black;">
+    <a class="nav-link k" href="dailyupdates.php" style="color: black;">
         <i class="fas fa-fw fa-table" style="font-size:20px"></i>
         <span><b>Daily Updates</b></span>
     </a>
@@ -283,7 +283,7 @@
 
 <!-- Nav Item - Work Reports -->
 <li class="nav-item l">
-    <a class="nav-link" href="reports.php" style="color: black;">
+    <a class="nav-link k" href="reports.php" style="color: black;">
         <i class="fas fa-fw fa-chart-area" style="font-size:20px"></i>
         <span><b>Work Reports</b></span>
     </a>
