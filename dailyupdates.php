@@ -442,8 +442,10 @@ tbody{
             <th>Date</th>
             <th>Company</th>
             <th>Project Title</th>
-            <th>Task Type</th>
+            <th>Task Flow</th>
             <th>Total Days</th>
+            <th>Task Type</th>
+            <th>Description</th>
             <th>Duration</th>
             <th>Actual Time</th>
             <th>Module Status</th>
@@ -456,11 +458,32 @@ tbody{
             <td>JayaVarshini</td>
             <td>01-02-2025</td>
             <td>ABC Corp</td>
-            <td>Mobile App</td>
-            <td>Testing</td> <!-- Task Type -->
+            <td>The project requires inbuilt updations and notifications.</td>
+            <td>UI/UX,Backend,Functionality,Testing</td>
             <td>5</td>
+            <td>Backend</td> <!-- Task Type -->
+            <td>I completed half backend work</td>
             <td>4.5</td>
-            <td>6</td>
+            <td>2</td>
+            <td>
+                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
+            </td> <!-- Module Status -->
+            <td class="project-status">
+                <!-- Status will be updated dynamically -->
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>JayaVarshini</td>
+            <td>01-02-2025</td>
+            <td>ABC Corp</td>
+            <td>The project requires inbuilt updations and notifications.</td>
+            <td>UI/UX,Backend,Functionality,Testing</td>
+            <td>5</td>
+            <td>Backend</td> <!-- Task Type -->
+            <td>I completed half backend work</td>
+            <td>4.5</td>
+            <td>2</td>
             <td>
                 <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
             </td> <!-- Module Status -->
@@ -473,11 +496,13 @@ tbody{
             <td>JayaVarshini</td>
             <td>07-02-2025</td>
             <td>ABC Corp</td>
-            <td>Web App</td>
-            <td>Testing</td> <!-- Task Type -->
+            <td>The project requires inbuilt updations and notifications.</td>
+            <td>UI/UX,Backend,Functionality,Testing</td>
             <td>5</td>
+            <td>Backend</td> <!-- Task Type -->
+            <td>I completed half backend work</td>
             <td>4.5</td>
-            <td>6</td>
+            <td>2</td>
             <td>
                 <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
             </td> <!-- Module Status -->
@@ -486,15 +511,55 @@ tbody{
             </td>
         </tr>
         <tr>
-            <td>2</td>
+            <td>1</td>
             <td>JayaVarshini</td>
             <td>07-02-2025</td>
             <td>ABC Corp</td>
-            <td>Mobile App</td>
-            <td>development</td> <!-- Task Type -->
+            <td>The project requires inbuilt updations and notifications.</td>
+            <td>UI/UX,Backend,Functionality,Testing</td>
             <td>5</td>
+            <td>Backend</td> <!-- Task Type -->
+            <td>I completed half backend work</td>
             <td>4.5</td>
-            <td>6</td>
+            <td>2</td>
+            <td>
+                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
+            </td> <!-- Module Status -->
+            <td class="project-status">
+                <!-- Status will be updated dynamically -->
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>JayaVarshini</td>
+            <td>08-02-2025</td>
+            <td>ABC Corp</td>
+            <td>The project requires inbuilt updations and notifications.</td>
+            <td>UI/UX,Backend,Functionality,Testing</td>
+            <td>5</td>
+            <td>Backend</td> <!-- Task Type -->
+            <td>I completed half backend work</td>
+            <td>4.5</td>
+            <td>2</td>
+            <td>
+                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
+            </td> <!-- Module Status -->
+            <td class="project-status">
+                <!-- Status will be updated dynamically -->
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>JayaVarshini</td>
+            <td>08-02-2025</td>
+            <td>ABC Corp</td>
+            <td>The project requires inbuilt updations and notifications.</td>
+            <td>UI/UX,Backend,Functionality,Testing</td>
+            <td>5</td>
+            <td>Backend</td> <!-- Task Type -->
+            <td>I completed half backend work</td>
+            <td>4.5</td>
+            <td>2</td>
             <td>
                 <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
             </td> <!-- Module Status -->
@@ -614,8 +679,8 @@ function filterByDate() {
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll("tbody tr").forEach(row => {
             let taskType = row.cells[5].innerText.trim(); // Task Type
-            let moduleStatus = row.cells[9].innerText.trim(); // Module Status
-            let projectStatusCell = row.cells[10]; // Project Status
+            let moduleStatus = row.cells[12].innerText.trim(); // Module Status
+            let projectStatusCell = row.cells[13]; // Project Status
 
             if (taskType === "Testing" && moduleStatus.includes("Completed")) {
                 projectStatusCell.innerHTML = `
@@ -631,7 +696,7 @@ function filterByDate() {
 
     function markCompleted(button) {
         let row = button.closest("tr");
-        let projectStatusCell = row.cells[10];
+        let projectStatusCell = row.cells[13];
 
         projectStatusCell.innerHTML = `
             <span class="text-success"><i class="fas fa-check-circle"></i> Completed</span>
