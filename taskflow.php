@@ -3,48 +3,25 @@
 
 <head>
 
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" type="image/png" href="img/ktglogo.jpg">
 
     <title>Task Manager</title>
 
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link rel="icon" type="image/png" href="img/ktglogo.jpg">
-    <!-- Custom styles for this template -->
+        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css"> -->
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
-        .table {
-    border-radius: 15px;
-    overflow: hidden; /* Ensures inner elements don't break the radius */
-    border-collapse: separate; /* Required for border-radius to work properly */
-    border-spacing: 0; /* Removes unwanted gaps */
-}
-
-/* Rounds top corners */
-.table thead tr:first-child th:first-child {
-    border-top-left-radius: 15px;
-}
-.table thead tr:first-child th:last-child {
-    border-top-right-radius: 15px;
-}
-
-/* Rounds bottom corners */
-.table tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-.table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
         /* Gradient background for thead */
         thead  {
             background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -114,8 +91,74 @@
     .modal-header .close:hover {
         color: #f8f9fa;
     }
+    .table {
+    border-radius: 15px;
+    overflow: hidden; /* Ensures inner elements don't break the radius */
+    border-collapse: separate; /* Required for border-radius to work properly */
+    border-spacing: 0; /* Removes unwanted gaps */
+}
+
+/* Rounds top corners */
+.table thead tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+.table thead tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+/* Rounds bottom corners */
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
 
 
+#taskInput {
+    width: 60%;
+}
+
+#taskButton {
+    width: 30%;
+    margin-left: 130px;
+}
+.acontainer{
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Tablets and Medium screens */
+@media (max-width: 992px) {
+    #taskInput {
+        width: 80%;
+    }
+
+    #taskButton {
+        width: 50%;
+        font-size: 14px;
+        
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 768px) {
+    #taskForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #taskInput {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #taskButton {
+        width: 100%;
+        margin-left: 0px;
+    }
+}
     </style>
     <style>
     .sidebar-brand-icon, .sidebar-brand-text {
@@ -223,7 +266,7 @@
         margin: 0 auto; /* Center align */
     }
 </style>
-
+    
 </head>
 
 <body id="page-top">
@@ -231,7 +274,6 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: white;">
 
@@ -264,11 +306,11 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="customer.php" style="color: white;"><b>Customer</b></a>
-            <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
-            <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
+            <a class="collapse-item " href="customer.php" style="color: black;"><b>Customer</b></a>
+            <a class="collapse-item " href="employee.php" style="color: black;"><b>Employee</b></a>
+            <a class="collapse-item " href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
-            <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
+            <a class="collapse-item active" href="taskflow.php" style="color: white;"><b>Task Flow</b></a>
         </div>
     </div>
 </li> 
@@ -385,122 +427,81 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                    <!-- Main Content -->
-                    <div id="content">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Master > Task Flow</h1>
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Task Details<form id="taskForm" class="d-flex align-items-center">
         
-                        
-                        <!-- End of Topbar -->
+        <input type="text" class="form-control" id="taskInput" placeholder="Enter Task">
+        <button type="submit" class="btn btn-primary" id="taskButton">Add Task</button>
         
-                        <!-- Begin Page Content -->
-                        <div class="container-fluid">
-        
-                            <!-- Page Heading -->
-                            <h1 class="h3 mb-2 text-gray-800">Master > Customer Details</h1>
-                            
-        
-                            <!-- DataTales Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Customer Details  <button class="btn btn-primary" style="float:right;" onclick="window.location.href='add_customer.php'">
-                                    <i class="fas fa-plus"></i> &nbsp Add Customer
-                                     </button>
-                            </h6>
-                                   
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr class="thead">
-                                                    <th>S.no</th>
-                                                    <th>Name</th>
-                                                    <th>Company Name</th>
-                                                    <th>Contact</th>
-                                                    <th>Address</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>JayaVarshini</td>
-                                                    <td>ABC Company</td>
-                                                    <td>1234567890</td>
-                                                    <td>No.123, Nehru Nagar, Karur-639006, Tamil Nadu, India</td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Suriya</td>
-                                                    <td>XYZ Company</td>
-                                                    <td>9876543210</td>
-                                                    <td>No.143, Vijaya Street, Chennai-5, Tamil Nadu, India</td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Mohan</td>
-                                                    <td>MNO Company</td>
-                                                    <td>4567891234</td>
-                                                    <td>No.11/A, Sengunthar Nagar, Karur-639006, Tamil Nadu, India</td>
-                                                    <td class="action-buttons">
-                                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
-                                                        <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-        
+</form></h6>
+                           
                         </div>
-                        <!-- /.container-fluid -->
-        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="thead">
+                                            <th>S.no</th>
+                                            <th>Task</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>UI/UX Design</td>
+                                            
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Backend</td>
+                                           
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Functionality</td>
+                                            
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Testing</td>
+                                            
+                                            <td class="action-buttons">
+                                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-        
-<!-- Add Customer Modal -->
-<!-- <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 25px; overflow: hidden;">
-            <div class="modal-header" style="border-top-left-radius: 25px; border-top-right-radius: 25px;" >
-                <h5 class="modal-title" id="addCustomerModalLabel">Add Customer</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
+                </div>
+                <!-- /.container-fluid -->
+
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="customerName">Name:</label>
-                        <input type="text" class="form-control" id="customerName" placeholder="Enter name">
-                    </div>
-                    <div class="form-group">
-                        <label for="companyName">Company Name:</label>
-                        <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phoneNumber">Phone Number:</label>
-                        <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
-                    </div>
-                    <div class="form-group">
-                        <label for="customerAddress">Address:</label>
-                        <textarea class="form-control" id="customerAddress" rows="3" placeholder="Enter address"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Add Customer</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
 
             <!-- End of Main Content -->
 
@@ -544,7 +545,13 @@
             </div>
         </div>
     </div>
+    <script>
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+});
+</script>
 
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -556,16 +563,16 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-<!-- Bootstrap 4.6.0 JavaScript -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script> -->
-
-
 </body>
 
 </html>
