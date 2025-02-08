@@ -287,6 +287,35 @@
         transform: scale(1.02); /* Slight lift effect */
         margin: 0 auto; /* Center align */
     }
+
+    .custom-card {
+        background: linear-gradient(45deg, rgba(255, 99, 71, 0.8), rgba(255, 165, 0, 0.8));
+        transition: background 0.5s ease-in-out, transform 0.2s;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: none;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+        background: linear-gradient(45deg, rgba(255, 165, 0, 0.9), rgba(255, 99, 71, 0.9));
+    }
+
+    .total-card {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+    }
+
+    .pending-card {
+        background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    }
+
+    .ongoing-card {
+        background: linear-gradient(45deg, #f7971e, #ffd200);
+    }
+
+    .completed-card {
+        background: linear-gradient(45deg, #56ab2f, #a8e063);
+    }
 </style>
 
         <!-- End of Sidebar -->
@@ -369,41 +398,36 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-                        <div class="col-lg-3 mb-4">
-                            <div class="card bg-info text-white shadow">
-                                <div class="card-body" style="font-size: x-large;"><b>
-                                    TOTAL</b>
-                                    <div style="font-size: 20px;">100</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4">
-                            <div class="card bg-danger text-white shadow">
-                                <div class="card-body" style="font-size: x-large;"><b>
-                                    PENDING</b>
-                                    <div style="font-size: 20px;">40</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4">
-                            <div class="card bg-warning text-white shadow">
-                                <div class="card-body" style="font-size: x-large;"><b>
-                                    ONGOING</b>
-                                    <div style="font-size: 20px;">20</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mb-4">
-                            <div class="card bg-success text-white shadow">
-                                <div class="card-body" style="font-size: x-large;"><b>
-                                    PENDING</b>
-                                    <div style="font-size: 20px;">40</div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
+                    <div class="row"> 
+    <div class="col-lg-3 mb-4">
+        <div class="card custom-card total-card text-white shadow">
+            <div class="card-body" style="font-size: x-large;"><b>TOTAL</b>
+                <div style="font-size: 20px;">100</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card custom-card pending-card text-white shadow">
+            <div class="card-body" style="font-size: x-large;"><b>PENDING</b>
+                <div style="font-size: 20px;">40</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card custom-card ongoing-card text-white shadow">
+            <div class="card-body" style="font-size: x-large;"><b>ONGOING</b>
+                <div style="font-size: 20px;">20</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card custom-card completed-card text-white shadow">
+            <div class="card-body" style="font-size: x-large;"><b>COMPLETED</b>
+                <div style="font-size: 20px;">40</div>
+            </div>
+        </div>
+    </div>
+</div>
 
                     <!-- Content Row -->
 
