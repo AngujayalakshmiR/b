@@ -386,7 +386,6 @@
             <a class="collapse-item " href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
-            <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
 </li> 
@@ -536,7 +535,13 @@
                                     <!-- <textarea class="form-control form-control-sm" id="projecttitle" rows="1" placeholder="Enter Project Title"></textarea> -->
                                     <input type="text" class="form-control form-control-sm" id="projecttitle" placeholder="Enter Project Title">
                                 </div>
-                                <div class="card p-2 shadow-sm text-center">
+                                
+                                
+                            </div>
+                
+                            <!-- Right Side -->
+                            <div class="col-md-5">
+                            <div class="card p-2 shadow-sm text-center">
                                 <div class="form-group" style="margin-top: 8px; margin-bottom:8px;">
     <label for="requirementfile" class="upload-label d-block font-weight-bold">
         <i class="fas fa-folder file-icon fa-lg text-warning upload-icon"></i> <!-- Add upload-icon class -->
@@ -546,12 +551,6 @@
     <p class="file-name text-muted" id="requirementfile-name">No file chosen</p> <!-- Unique ID -->
 </div>
 </div>
-                                
-                            </div>
-                
-                            <!-- Right Side -->
-                            <div class="col-md-5">
-                           
 <div class="mt-4 position-relative">
     <label for="addemployee"><b>Add Employee:</b></label><br>
     <button type="button" class="btn btn-warning" id="addEmployeeBtn">
@@ -563,11 +562,6 @@
         style="display: none; border: 1px solid #ccc; background: white; position: absolute; width: auto; min-width: 320px; z-index: 100;">
         
         <div id="employeeDropdown" class="row"></div>
-
-        <!-- OK Button in Bottom-Right -->
-        <div class="d-flex justify-content-end mt-2">
-            <button type="button" class="btn btn-success btn-sm px-3" id="confirmSelection">OK</button>
-        </div>
     </div>
 
     <!-- Selected Employees Display -->
@@ -575,30 +569,80 @@
         <span id="selectedEmployees">Nil</span>
     </div>
 </div>
-<div class="mt-4 position-relative">
-    <label for="addtaskflow"><b>Add Task Flow:</b></label><br>
-    <button type="button" class="btn btn-info" id="addtaskflowBtn">
-        <i class="fas fa-tasks"></i>&nbsp Add Task Flow 
-    </button>
 
-    <!-- Dropdown Container -->
-    <div id="dropdownContainer1" class="mt-2 p-3 rounded shadow" 
-        style="display: none; border: 1px solid #ccc; background: white; position: absolute; width: auto; min-width: 320px; z-index: 100;">
-        
-        <div id="taskflowDropdown" class="row"></div>
+<script>
+// Employee Dropdown Logic
+let employees = ["Pavitra", "Jayavarshini", "Suriya", "Mohan", "Naveen", "Anbumani", "Sivakumar", "Venkatesh"];
+employees.sort(); // Sort employees alphabetically
+let selectedEmployees = new Set();
 
-        <!-- OK Button in Bottom-Right -->
-        <div class="d-flex justify-content-end mt-2">
-            <button type="button" class="btn btn-success btn-sm px-3" id="confirmSelection1">OK</button>
-        </div>
-    </div>
+const addEmployeeBtn = document.getElementById('addEmployeeBtn');
+const dropdownContainer = document.getElementById('dropdownContainer');
+const dropdownList = document.getElementById('employeeDropdown');
+const selectedEmployeesDisplay = document.getElementById('selectedEmployees');
 
-    <!-- Selected Employees Display -->
-    <div id="selectedtaskflowContainer" class="mt-2"><b>Selected Task Flow:</b> 
-        <span id="selectedtaskflow">Nil</span>
-    </div>
-</div>
+// Show dropdown when clicking the button
+addEmployeeBtn.addEventListener('click', function () {
+    dropdownContainer.style.display = 'block'; // Show dropdown
+    dropdownList.innerHTML = ''; // Clear previous list
 
+    employees.forEach(emp => {
+        let wrapper = document.createElement('div');
+        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1');
+
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = emp;
+        checkbox.checked = selectedEmployees.has(emp);
+        checkbox.classList.add('employee-checkbox');
+
+        let label = document.createElement('label');
+        label.textContent = emp;
+        label.classList.add('mr-auto', 'text-wrap', 'employee-label');
+        label.style.wordBreak = 'break-word';
+        label.style.flex = '1';
+        label.style.marginBottom = "0";
+        label.style.whiteSpace = 'normal';
+        label.style.cursor = 'pointer'; // Add pointer cursor for better UX
+
+        // Function to toggle selection
+        function toggleSelection() {
+            if (checkbox.checked) {
+                selectedEmployees.add(emp);
+            } else {
+                selectedEmployees.delete(emp);
+            }
+            updateSelectedEmployees();
+        }
+
+        // Click on label should toggle checkbox
+        label.addEventListener('click', function () {
+            checkbox.checked = !checkbox.checked;
+            toggleSelection();
+        });
+
+        // Checkbox should work independently as well
+        checkbox.addEventListener('change', toggleSelection);
+
+        wrapper.appendChild(checkbox);
+        wrapper.appendChild(label);
+        dropdownList.appendChild(wrapper);
+    });
+});
+
+// Function to update selected employees display
+function updateSelectedEmployees() {
+    selectedEmployeesDisplay.textContent = [...selectedEmployees].join(', ') || "Nil";
+}
+
+// Hide dropdown when clicking outside
+document.addEventListener('click', function (event) {
+    if (!dropdownContainer.contains(event.target) && event.target !== addEmployeeBtn) {
+        dropdownContainer.style.display = 'none';
+    }
+});
+
+</script>
 
                             </div>
                         </div>
@@ -636,107 +680,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-    <script>
-// Employee Dropdown Logic
-let employees = ["Pavitra", "Jayavarshini", "Suriya", "Mohan", "Naveen", "Anbumani", "Sivakumar", "Venkatesh"];
-employees.sort(); // Sort employees alphabetically
-let selectedEmployees = new Set();
-
-document.getElementById('addEmployeeBtn').addEventListener('click', function () {
-    let dropdownContainer = document.getElementById('dropdownContainer');
-    let dropdownList = document.getElementById('employeeDropdown');
-
-    dropdownContainer.style.display = 'block'; // Show dropdown
-    dropdownList.innerHTML = ''; // Clear previous list
-
-    employees.forEach(emp => {
-        let wrapper = document.createElement('div');
-        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1'); 
-
-        let label = document.createElement('label');
-        label.textContent = emp;
-        label.classList.add('mr-auto', 'text-wrap');
-        label.style.wordBreak = 'break-word';
-        label.style.flex = '1';
-        label.style.marginBottom = "0";
-        label.style.whiteSpace = 'normal';
-
-        let checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.value = emp;
-        checkbox.checked = selectedEmployees.has(emp);
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                selectedEmployees.add(this.value);
-            } else {
-                selectedEmployees.delete(this.value);
-            }
-        });
-
-        wrapper.appendChild(label);
-        wrapper.appendChild(checkbox);
-        dropdownList.appendChild(wrapper);
-    });
-});
-
-// OK Button Click - Updates Selection
-document.getElementById('confirmSelection').addEventListener('click', function (event) {
-    event.preventDefault();
-    document.getElementById('dropdownContainer').style.display = 'none';
-    document.getElementById('selectedEmployees').textContent = [...selectedEmployees].join(', ') || "Nil";
-});
-
-// Task Flow Dropdown Logic
-let taskflow = ["UI/UX", "Backend", "Functionality", "Testing", "Designing"];
-taskflow.sort();
-let selectedTaskflow = new Set();
-
-document.getElementById('addtaskflowBtn').addEventListener('click', function () {
-    let dropdownContainer = document.getElementById('dropdownContainer1');
-    let dropdownList = document.getElementById('taskflowDropdown');
-
-    dropdownContainer.style.display = 'block'; // Show dropdown
-    dropdownList.innerHTML = ''; // Clear previous list
-
-    taskflow.forEach(task => {
-        let wrapper = document.createElement('div');
-        wrapper.classList.add('col-6', 'd-flex', 'align-items-center', 'mb-1');
-
-        let label = document.createElement('label');
-        label.textContent = task;
-        label.classList.add('mr-auto', 'text-wrap');
-        label.style.wordBreak = 'break-word';
-        label.style.flex = '1';
-        label.style.marginBottom = "0";
-        label.style.whiteSpace = 'normal';
-
-        let checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.value = task;
-        checkbox.checked = selectedTaskflow.has(task);
-
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                selectedTaskflow.add(this.value);
-            } else {
-                selectedTaskflow.delete(this.value);
-            }
-        });
-
-        wrapper.appendChild(label);
-        wrapper.appendChild(checkbox);
-        dropdownList.appendChild(wrapper);
-    });
-});
-
-// OK Button Click - Updates Task Flow Selection
-document.getElementById('confirmSelection1').addEventListener('click', function (event) {
-    event.preventDefault();
-    document.getElementById('dropdownContainer1').style.display = 'none';
-    document.getElementById('selectedtaskflow').textContent = [...selectedTaskflow].join(', ') || "Nil";
-});
-</script>
+   
 <script>
     function updateFileName(input, fileNameId) {
         const fileInput = input.files[0];

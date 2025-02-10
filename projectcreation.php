@@ -276,7 +276,6 @@
             <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
-            <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
 </li> 
@@ -427,10 +426,8 @@
                                                     <th>Company</th>
                                                     <th>Project type</th>
                                                     <th>Project Title</th>
-                                                    <th>Task Flow</th>
                                                     <th>Days</th>
                                                     <th>Employees</th>
-                                                    <th>Requirement</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -441,12 +438,9 @@
                                                     <td>Kurinji Cement</td>
                                                     <td>Web Development</td>
                                                     <td>An website for cement & steel purchase, sales and administration.</td>
-                                                    <td>UI/UX, Backend, Functionality,Testing</td>
                                                     <td>5</td>
                                                     <td>JayaVarshini, Surya</td>
-                                                    <td>
-                                                <i class="fas fa-folder file-icon" title="Photo" style="color:rgb(228, 137, 27);font-size:30px;"></i>
-                                            </td>
+                                             
                                                     <td class="action-buttons">
                                                         <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
                                                         <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
@@ -458,12 +452,9 @@
                                                     <td>Green Home</td>
                                                     <td>Mobile Development</td>
                                                     <td>An website for cement & steel purchase, sales and administration.</td>
-                                                    <td>UI/UX, Backend, Functionality,Testing</td>
                                                     <td>5</td>
                                                     <td>JayaVarshini, Surya</td>
-                                                    <td>
-                                                <i class="fas fa-folder file-icon" title="Photo" style="color:rgb(228, 137, 27);font-size:30px;"></i>
-                                            </td>
+                                                    
                                                     <td class="action-buttons">
                                                         <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
                                                         <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>
@@ -475,12 +466,9 @@
                                                     <td>Gowin</td>
                                                     <td>Poster Designing</td>
                                                     <td>An website for cement & steel purchase, sales and administration.</td>
-                                                    <td>UI/UX,Testing</td>
                                                     <td>5</td>
                                                     <td>JayaVarshini, Surya</td>
-                                                    <td>
-                                                <i class="fas fa-folder file-icon" title="Photo" style="color:rgb(228, 137, 27);font-size:30px;"></i>
-                                            </td>
+                                                    
                                                     <td class="action-buttons">
                                                         <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
                                                         <button class="btn-action btn-delete"><i class="fas fa-trash-alt"></i></button>

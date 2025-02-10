@@ -406,7 +406,6 @@
             <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
-            <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
 </li>
@@ -771,7 +770,7 @@
     </div>
 </div>
 
-
+<!-- 
 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title m-b-0"></h4><br>
@@ -834,7 +833,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                     <!-- Content Row -->
 
                     <!-- <div class="row">

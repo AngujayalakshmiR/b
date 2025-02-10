@@ -23,12 +23,17 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
- .thead th {
-    font-size: 16px;  /* Reduce text size */
-    padding: 6px 4px; /* Reduce padding */
-    white-space: nowrap; /* Prevent text from wrapping */
-}
 
+#dataTable th:nth-child(1), #dataTable td:nth-child(1) { width: 3%; }  /* S.no */
+    #dataTable th:nth-child(2), #dataTable td:nth-child(2) { width: 8%; } /* Name */
+    #dataTable th:nth-child(3), #dataTable td:nth-child(3) { width: 0%; } /* Date */
+    #dataTable th:nth-child(4), #dataTable td:nth-child(4) { width: 10%; } /* Company */
+    #dataTable th:nth-child(5), #dataTable td:nth-child(5) { width: 15%; } /* Project Title */
+    #dataTable th:nth-child(6), #dataTable td:nth-child(6) { width: 14%; }  /* Total Days */
+    #dataTable th:nth-child(7), #dataTable td:nth-child(7) { width: 20%; } /* Description */
+    #dataTable th:nth-child(8), #dataTable td:nth-child(8) { width: 15%; } /* Total Time */
+    #dataTable th:nth-child(9), #dataTable td:nth-child(9) { width: 20%; } /* Actual Time */
+    #dataTable th:nth-child(10), #dataTable td:nth-child(10) { width: 12%; } /* Status */
         /* Gradient background for thead */
         thead  {
             background: linear-gradient(to right, #4568dc, #b06ab3);
@@ -157,10 +162,7 @@ tbody{
     border-color: #f8f9fa;
 }
     /* Reduce padding for table cells */
-    #dataTable th, #dataTable td {
-        padding: 5px; /* Reduce padding */
-        white-space: nowrap; /* Prevent text wrapping */
-    }
+    
 
     .status-icon {
             font-size: 1.2rem;
@@ -202,12 +204,6 @@ tbody{
     border: 1px solid #dee2e6; /* Ensures full border visibility */
 }
 
-/* Remove direct table border to avoid double borders */
-.table {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-}
 
 /* Apply border to all cells */
 .table th, .table td {
@@ -371,7 +367,6 @@ tbody{
             <a class="collapse-item" href="employee.php" style="color: black;"><b>Employee</b></a>
             <a class="collapse-item" href="designation.php" style="color: black;"><b>Designation</b></a>
             <a class="collapse-item" href="projecttype.php" style="color: black;"><b>Project Type</b></a>
-            <a class="collapse-item " href="taskflow.php" style="color: black;"><b>Task Flow</b></a>
         </div>
     </div>
 </li> 
@@ -485,8 +480,14 @@ tbody{
 </ul>
 
 </nav>
-                <!-- End of Topbar -->
 
+                <!-- End of Topbar -->
+<style>
+    #dataTable th:nth-child(3), 
+#dataTable td:nth-child(3) {
+    display: none;
+}
+</style>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -505,139 +506,53 @@ tbody{
                         </div>
                         <div class="card-body">
                             <div class="table-responsive ">
-                            <table class="table text-center" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table text-center" id="dataTable" width="100%">
     <thead>
         <tr>
             <th>S.no</th>
             <th>Name</th>
             <th>Date</th>
             <th>Company</th>
-            <th>Project Title</th>
-            <th>Task Flow</th>
+            <th>Title</th>
             <th>Total Days</th>
-            <th>Task Type</th>
             <th>Description</th>
-            <th>Duration</th>
-            <th>Actual Time</th>
-            <th>Module Status</th>
-            <th>Project Status</th>
+            <th>Total Hrs</th>
+            <th>Actual Hrs</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>1</td>
             <td>JayaVarshini</td>
-            <td>01-02-2025</td>
+            <td>10-02-2025</td>
             <td>ABC Corp</td>
             <td>The project requires inbuilt updations and notifications.</td>
-            <td>UI/UX,Backend,Functionality,Testing</td>
             <td>5</td>
-            <td>Backend</td> <!-- Task Type -->
             <td>I completed half backend work</td>
             <td>4.5</td>
             <td>2</td>
             <td>
                 <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
             </td> <!-- Module Status -->
-            <td class="project-status">
-                <!-- Status will be updated dynamically -->
-            </td>
+           
         </tr>
         <tr>
             <td>1</td>
             <td>JayaVarshini</td>
-            <td>01-02-2025</td>
+            <td>10-02-2025</td>
             <td>ABC Corp</td>
             <td>The project requires inbuilt updations and notifications.</td>
-            <td>UI/UX,Backend,Functionality,Testing</td>
             <td>5</td>
-            <td>Backend</td> <!-- Task Type -->
             <td>I completed half backend work</td>
             <td>4.5</td>
             <td>2</td>
             <td>
                 <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
             </td> <!-- Module Status -->
-            <td class="project-status">
-                <!-- Status will be updated dynamically -->
-            </td>
+          
         </tr>
-        <tr>
-            <td>1</td>
-            <td>JayaVarshini</td>
-            <td>07-02-2025</td>
-            <td>ABC Corp</td>
-            <td>The project requires inbuilt updations and notifications.</td>
-            <td>UI/UX,Backend,Functionality,Testing</td>
-            <td>5</td>
-            <td>Backend</td> <!-- Task Type -->
-            <td>I completed half backend work</td>
-            <td>4.5</td>
-            <td>2</td>
-            <td>
-                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
-            </td> <!-- Module Status -->
-            <td class="project-status">
-                <!-- Status will be updated dynamically -->
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>JayaVarshini</td>
-            <td>07-02-2025</td>
-            <td>ABC Corp</td>
-            <td>The project requires inbuilt updations and notifications.</td>
-            <td>UI/UX,Backend,Functionality,Testing</td>
-            <td>5</td>
-            <td>Backend</td> <!-- Task Type -->
-            <td>I completed half backend work</td>
-            <td>4.5</td>
-            <td>2</td>
-            <td>
-                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
-            </td> <!-- Module Status -->
-            <td class="project-status">
-                <!-- Status will be updated dynamically -->
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>JayaVarshini</td>
-            <td>08-02-2025</td>
-            <td>ABC Corp</td>
-            <td>The project requires inbuilt updations and notifications.</td>
-            <td>UI/UX,Backend,Functionality,Testing</td>
-            <td>5</td>
-            <td>Backend</td> <!-- Task Type -->
-            <td>I completed half backend work</td>
-            <td>4.5</td>
-            <td>2</td>
-            <td>
-                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
-            </td> <!-- Module Status -->
-            <td class="project-status">
-                <!-- Status will be updated dynamically -->
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>JayaVarshini</td>
-            <td>08-02-2025</td>
-            <td>ABC Corp</td>
-            <td>The project requires inbuilt updations and notifications.</td>
-            <td>UI/UX,Backend,Functionality,Testing</td>
-            <td>5</td>
-            <td>Testing</td> <!-- Task Type -->
-            <td>I completed half backend work</td>
-            <td>4.5</td>
-            <td>2</td>
-            <td>
-                <i class="fas fa-check-circle status-icon completed"></i>&nbsp&nbsp Completed
-            </td> <!-- Module Status -->
-            <td class="project-status">
-                <!-- Status will be updated dynamically -->
-            </td>
-        </tr>
+       
     </tbody>
 </table>
                             </div>
